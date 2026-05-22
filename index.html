@@ -66,7 +66,9 @@ nav.solid{background:rgba(249,246,242,0.97);backdrop-filter:blur(16px);box-shado
 /* MANIFESTO */
 #manifesto{background:var(--blue);padding:56px 80px;text-align:center;}
 .mani{font-family:'Libre Baskerville',serif;font-size:clamp(1.1rem,2vw,1.7rem);font-weight:400;font-style:italic;color:#fff;line-height:1.7;}
-.mani span{color:rgba(255,255,255,.5);font-style:normal;font-size:.65em;display:block;margin-top:10px;letter-spacing:.22em;text-transform:uppercase;}
+.mani small{color:rgba(255,255,255,.5);font-style:normal;font-size:.55em;display:block;margin-top:10px;letter-spacing:.22em;text-transform:uppercase;}
+.mani [data-lang]{display:none;}
+.mani [data-lang].active{display:block;}
 
 /* SECTIONS */
 .sec{padding:110px 80px;}
@@ -312,6 +314,7 @@ html{scroll-behavior:smooth;}
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 620px;
+  align-items: stretch;
 }
 .origin-visual {
   position: relative;
@@ -375,6 +378,7 @@ html{scroll-behavior:smooth;}
   padding: 80px 72px;
   display: flex; flex-direction: column; justify-content: center;
   background: var(--cream);
+  border-left: 3px solid var(--blue-pale);
 }
 .origin-eyebrow {
   font-size:.58rem; letter-spacing:.35em; text-transform:uppercase;
@@ -692,10 +696,10 @@ html{scroll-behavior:smooth;}
 <!-- MANIFESTO -->
 <div id="manifesto">
   <p class="mani">
-    <span data-lang="ko" class="active">"피부과도, 에스테틱도 말하지 않는 것 — 왜 계속 반복되는가."<span>Skin is the result. We treat the cause.</span></span>
-    <span data-lang="en">"What clinics and esthetics don't tell you — why it keeps coming back."<span>Skin is the result. We treat the cause.</span></span>
-    <span data-lang="zh">"皮肤科和美容院都不告诉你的 — 为什么一直反复。"<span>Skin is the result. We treat the cause.</span></span>
-    <span data-lang="ja">"皮膚科もエステも言わないこと — なぜ繰り返すのか。"<span>Skin is the result. We treat the cause.</span></span>
+    <span data-lang="ko" class="active">"피부과도, 에스테틱도 말하지 않는 것 — 왜 계속 반복되는가."<br><small style="font-size:.55em;letter-spacing:.2em;opacity:.6;font-style:normal;">SKIN IS THE RESULT. WE TREAT THE CAUSE.</small></span>
+    <span data-lang="en">"What clinics and esthetics don't tell you — why it keeps coming back."<br><small style="font-size:.55em;letter-spacing:.2em;opacity:.6;font-style:normal;">SKIN IS THE RESULT. WE TREAT THE CAUSE.</small></span>
+    <span data-lang="zh">"皮肤科和美容院都不告诉你的 — 为什么一直反复。"<br><small style="font-size:.55em;letter-spacing:.2em;opacity:.6;font-style:normal;">SKIN IS THE RESULT. WE TREAT THE CAUSE.</small></span>
+    <span data-lang="ja">"皮膚科もエステも言わないこと — なぜ繰り返すのか。"<br><small style="font-size:.55em;letter-spacing:.2em;opacity:.6;font-style:normal;">SKIN IS THE RESULT. WE TREAT THE CAUSE.</small></span>
   </p>
 </div>
 
@@ -736,12 +740,8 @@ html{scroll-behavior:smooth;}
 
   <!-- ② ORIGIN STORY -->
   <div class="story-origin">
-    <div class="origin-visual">
-      <div class="origin-curtain"></div>
-      <div class="origin-curtain"></div>
-      <div class="origin-lightbar"></div>
-      <div class="origin-mirror"></div>
-      <div class="origin-bed"></div>
+    <div class="origin-visual" style="padding:0;overflow:hidden;">
+      <img src="Chiyou_0038.jpg" alt="Treatment" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.9);">
       <div class="origin-caption">
         <span data-lang="ko" class="active">Chiyou In Cheongdam · Treatment Room · Gangnam Paragon 3F</span>
         <span data-lang="en">Chiyou In Cheongdam · Treatment Room · Gangnam Paragon 3F</span>
