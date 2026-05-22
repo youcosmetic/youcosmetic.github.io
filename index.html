@@ -5,646 +5,273 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CHIYOU IN CHEONGDAM</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@200;300;400&family=Noto+Sans+SC:wght@200;300;400&family=Noto+Sans+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@200;300;400&family=Noto+Sans+SC:wght@200;300&family=Noto+Sans+JP:wght@200;300&display=swap" rel="stylesheet">
 <style>
-:root {
-  --blue:#5a7d96; --blue-dk:#3d5c72; --blue-lt:#8fafc4;
-  --blue-pale:#dce8f0; --greige:#b8a99a; --ink:#1e1e1e;
-  --cream:#f4f0eb; --off:#ede9e3; --stone:#8a8078; --linen:#f9f6f2;
+:root{
+  --blue:#5a7d96;--blue-dk:#3d5c72;--blue-lt:#8fafc4;--blue-pale:#dce8f0;
+  --ink:#1a1a1a;--cream:#f4f0eb;--stone:#6a6258;--linen:#f9f6f2;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--linen);color:var(--ink);font-family:'Noto Sans KR',sans-serif;font-weight:300;overflow-x:hidden;}
 body.lang-zh{font-family:'Noto Sans SC',sans-serif;}
 body.lang-ja{font-family:'Noto Sans JP',sans-serif;}
-[data-lang]{display:none;}[data-lang].active{display:block;}
+[data-lang]{display:none;}
+[data-lang].active{display:block;}
+img{display:block;}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:68px;transition:background .4s,box-shadow .4s;}
-nav.solid{background:rgba(249,246,242,0.97);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(90,125,150,0.12);}
-.nav-logo{font-family:'Libre Baskerville',serif;font-size:.82rem;letter-spacing:.32em;text-transform:uppercase;color:var(--blue-dk);text-decoration:none;}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:64px;background:rgba(249,246,242,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(90,125,150,.12);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:.85rem;letter-spacing:.28em;text-transform:uppercase;color:var(--blue-dk);text-decoration:none;}
 .nav-logo span{color:var(--blue-lt);}
-.nav-center{display:flex;gap:36px;list-style:none;}
-.nav-center a{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#5a5248;text-decoration:none;transition:color .2s;}
-.nav-center a:hover{color:var(--blue-dk);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--blue-dk);}
 .nav-right{display:flex;align-items:center;gap:12px;}
 .lang-sw{display:flex;gap:2px;}
-.lbtn{background:none;border:none;cursor:pointer;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#5a5248;padding:5px 8px;border-radius:2px;font-family:inherit;transition:all .18s;}
+.lbtn{background:none;border:none;cursor:pointer;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);padding:5px 8px;border-radius:2px;font-family:inherit;transition:all .18s;}
 .lbtn.on{background:var(--blue);color:#fff;}
-.lbtn:not(.on):hover{color:var(--blue);}
-.nav-book{border:1px solid var(--blue);background:none;color:var(--blue);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:8px 18px;cursor:pointer;font-family:inherit;transition:all .22s;}
+.nav-book{border:1px solid var(--blue);background:none;color:var(--blue);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;padding:8px 18px;cursor:pointer;font-family:inherit;transition:all .22s;}
 .nav-book:hover{background:var(--blue);color:#fff;}
 
-/* HERO */
-#hero{height:100vh;min-height:640px;display:grid;grid-template-columns:1fr 1fr;}
-.hero-visual{position:relative;overflow:hidden;background:linear-gradient(155deg,var(--blue-pale) 0%,#c8dae6 40%,#8fafc4 100%);}
-.hero-visual::after{content:'';position:absolute;top:0;right:0;width:3px;height:100%;background:var(--blue);opacity:.5;}
-.hero-visual-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0;}
-.hero-kanji{font-family:'Libre Baskerville',serif;font-size:18rem;font-weight:400;color:rgba(61,92,114,0.12);line-height:1;user-select:none;}
-.hero-room{position:absolute;bottom:40px;left:0;right:0;display:flex;justify-content:center;gap:12px;}
-.room-block{background:rgba(255,255,255,0.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.3);border-radius:2px;}
-.room-block.wide{width:160px;height:100px;}
-.room-block.tall{width:80px;height:140px;}
-.room-block.sm{width:80px;height:60px;}
-.hero-circle{position:absolute;top:40px;right:40px;width:80px;height:80px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);}
-.hero-line{position:absolute;top:50%;left:40px;width:1px;height:120px;background:rgba(255,255,255,0.25);transform:translateY(-50%);}
-
-.hero-text{background:var(--blue-dk);display:flex;flex-direction:column;justify-content:flex-end;padding:80px 64px;position:relative;overflow:hidden;}
+/* ── HERO ── */
+#hero{height:100vh;min-height:640px;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;}
+.hero-img{overflow:hidden;}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.85);}
+.hero-text{background:var(--blue-dk);display:flex;flex-direction:column;justify-content:flex-end;padding:64px 56px;position:relative;overflow:hidden;}
 .hero-text::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0,transparent 40px,rgba(255,255,255,.015) 40px,rgba(255,255,255,.015) 41px);}
-.hero-ey{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:28px;opacity:0;animation:fadeUp .9s .3s forwards;}
-.hero-h1{font-family:'Libre Baskerville',serif;font-size:clamp(2.2rem,3.8vw,4rem);font-weight:400;color:#fff;line-height:1.18;margin-bottom:28px;opacity:0;animation:fadeUp .9s .5s forwards;}
-.hero-h1 em{font-style:italic;color:rgba(255,255,255,.75);}
-.hero-sub{font-size:.78rem;color:rgba(255,255,255,.78);line-height:2;letter-spacing:.06em;margin-bottom:48px;opacity:0;animation:fadeUp .9s .7s forwards;}
-.hero-div{width:40px;height:1px;background:var(--blue-lt);opacity:.4;margin-bottom:40px;opacity:0;animation:fadeIn .9s .65s forwards;}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .9s forwards;}
-.btn-w{background:#fff;color:var(--blue-dk);border:none;padding:14px 30px;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:all .22s;}
+.hero-ey{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:24px;position:relative;z-index:1;}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,4rem);font-weight:300;color:#fff;line-height:1.15;margin-bottom:20px;position:relative;z-index:1;}
+.hero-h1 em{font-style:italic;color:rgba(255,255,255,.48);}
+.hero-sub{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.9;margin-bottom:40px;position:relative;z-index:1;}
+.hero-div{width:36px;height:1px;background:var(--blue-lt);opacity:.45;margin-bottom:32px;position:relative;z-index:1;}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1;}
+.btn-w{background:#fff;color:var(--blue-dk);border:none;padding:12px 26px;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:all .22s;}
 .btn-w:hover{background:var(--blue-lt);color:#fff;}
-.btn-ow{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.22);padding:14px 30px;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:all .22s;}
-.btn-ow:hover{border-color:rgba(255,255,255,.55);color:#fff;}
-.hero-corner{position:absolute;top:100px;right:48px;writing-mode:vertical-rl;font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.18);}
+.btn-ow{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.28);padding:12px 26px;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:all .22s;}
+.btn-ow:hover{border-color:rgba(255,255,255,.65);color:#fff;}
+.hero-corner{position:absolute;top:90px;right:40px;writing-mode:vertical-rl;font-size:.55rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.16);}
 
-/* MANIFESTO */
-#manifesto{background:var(--blue);padding:56px 80px;text-align:center;}
-.mani{font-family:'Libre Baskerville',serif;font-size:clamp(1.1rem,2vw,1.7rem);font-weight:400;font-style:italic;color:#fff;line-height:1.7;}
-.mani small{color:rgba(255,255,255,.5);font-style:normal;font-size:.55em;display:block;margin-top:10px;letter-spacing:.22em;text-transform:uppercase;}
-.mani [data-lang]{display:none;}
-.mani [data-lang].active{display:block;}
+/* ── MANIFESTO ── */
+#manifesto{background:var(--blue);padding:52px 80px;text-align:center;}
+.mani{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2vw,1.65rem);font-style:italic;color:#fff;line-height:1.7;}
+.mani-sub{font-size:.58rem;letter-spacing:.25em;color:rgba(255,255,255,.5);text-transform:uppercase;display:block;margin-top:12px;font-style:normal;}
 
-/* SECTIONS */
+/* ── SECTION BASE ── */
 .sec{padding:80px 80px;}
-.eyebrow{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:18px;}
-.sec-title{font-family:'Libre Baskerville',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;line-height:1.2;color:var(--ink);}
-.sec-title em{font-style:italic;color:var(--blue);}
-.body-txt{font-size:.84rem;line-height:2;color:#5a5248;max-width:500px;}
+.ey{font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:16px;}
+.ey-lt{color:var(--blue-lt);}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.2;color:var(--ink);}
+.stitle em{font-style:italic;color:var(--blue);}
+.stitle-lt{color:#fff;}
+.stitle-lt em{color:var(--blue-lt);}
+.sbody{font-size:.82rem;line-height:2;color:var(--stone);}
+.sbody-lt{color:rgba(255,255,255,.72);}
 
-/* STORY */
+/* ── STORY BANNER ── */
 #story{background:var(--linen);}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start;margin-top:56px;}
+.story-banner{background:var(--blue-dk);padding:72px 80px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;overflow:hidden;}
+.story-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0,transparent 60px,rgba(255,255,255,.018) 60px,rgba(255,255,255,.018) 61px);}
+.s-banner-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.8vw,3.8rem);font-weight:300;color:#fff;line-height:1.15;position:relative;z-index:1;}
+.s-banner-title em{font-style:italic;color:rgba(255,255,255,.42);}
+.s-banner-ey{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-lt);display:block;margin-bottom:20px;position:relative;z-index:1;}
+.s-banner-r{position:relative;z-index:1;}
+.s-banner-quote{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(255,255,255,.82);line-height:1.75;border-left:2px solid var(--blue-lt);padding-left:22px;margin-bottom:22px;}
+.s-banner-body{font-size:.8rem;line-height:2;color:rgba(255,255,255,.68);}
+.banner-bg{position:absolute;right:-20px;bottom:-50px;font-family:'Cormorant Garamond',serif;font-size:20rem;font-weight:300;color:rgba(255,255,255,.024);line-height:1;pointer-events:none;}
 
-/* visual card replacing photo */
-.story-visual{position:relative;background:linear-gradient(155deg,#dce8f0 0%,#c5d9e6 50%,#8fafc4 100%);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.story-visual::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 48px,rgba(255,255,255,.06) 48px,rgba(255,255,255,.06) 49px);}
-.story-vis-content{position:relative;z-index:1;text-align:center;}
-.vis-hanja{font-family:'Libre Baskerville',serif;font-size:10rem;color:rgba(61,92,114,0.18);line-height:1;display:block;}
-.vis-label{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(61,92,114,0.5);margin-top:8px;}
-/* room illustration inside card */
-.vis-room{position:absolute;bottom:32px;left:32px;right:32px;height:120px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);}
-.vis-room::before{content:'';position:absolute;top:20px;left:50%;transform:translateX(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.4);}
-.story-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(30,30,30,.6));padding:28px 24px 20px;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);}
+/* ORIGIN SPLIT */
+.origin-split{display:grid;grid-template-columns:1fr 1fr;min-height:520px;}
+.origin-img{overflow:hidden;}
+.origin-img img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(.85) saturate(.88);}
+.origin-text{padding:64px 56px;background:var(--cream);display:flex;flex-direction:column;justify-content:center;}
+.o-ey{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:14px;}
+.o-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.2vw,2.1rem);font-weight:300;line-height:1.25;color:var(--ink);margin-bottom:22px;}
+.o-title em{font-style:italic;color:var(--blue);}
+.o-body{font-size:.8rem;line-height:2;color:var(--stone);}
+.o-body+.o-body{margin-top:16px;}
+.pillars{margin-top:36px;}
+.pillar{display:flex;gap:18px;padding:20px 0;border-top:1px solid rgba(90,125,150,.12);}
+.pillar:last-child{border-bottom:1px solid rgba(90,125,150,.12);}
+.p-num{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:rgba(90,125,150,.2);flex-shrink:0;line-height:1;width:26px;}
+.p-title{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:5px;font-weight:400;}
+.p-body{font-size:.78rem;line-height:1.85;color:var(--stone);}
 
-.pillars{margin-top:48px;}
-.pillar{display:flex;gap:24px;padding:26px 0;border-top:1px solid rgba(90,125,150,.13);}
-.pillar:last-child{border-bottom:1px solid rgba(90,125,150,.13);}
-.p-num{font-family:'Libre Baskerville',serif;font-size:1.5rem;color:rgba(90,125,150,.2);flex-shrink:0;line-height:1;margin-top:2px;width:32px;}
-.p-title{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:7px;font-weight:400;}
-.p-body{font-size:.82rem;line-height:1.85;color:#5a5248;}
-
-/* QUOTE */
-.quote-band{background:var(--ink);padding:80px 80px;display:grid;grid-template-columns:1fr 1px 1fr;gap:60px;align-items:center;}
-.qdiv{background:rgba(90,125,150,.25);height:100%;}
-.ql{font-family:'Libre Baskerville',serif;font-size:clamp(1.1rem,1.8vw,1.6rem);font-style:italic;color:rgba(255,255,255,.82);line-height:1.65;}
-.ql::before{content:'\201C';font-size:3em;color:var(--blue);opacity:.4;line-height:.5;display:block;margin-bottom:8px;}
-.q-attr{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-lt);margin-top:26px;}
-.q-tags{display:flex;flex-direction:column;gap:14px;}
-.qtag{border:1px solid rgba(90,125,150,.28);color:rgba(255,255,255,.75);padding:10px 16px;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;transition:all .22s;cursor:default;}
+/* QUOTE BAND */
+.quote-band{background:var(--ink);padding:68px 80px;display:grid;grid-template-columns:1fr 2px 1fr;gap:56px;align-items:center;}
+.qdiv{background:rgba(90,125,150,.18);height:100%;}
+.ql{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.55rem);font-style:italic;color:rgba(255,255,255,.9);line-height:1.65;}
+.ql::before{content:'\201C';font-size:3em;color:var(--blue);opacity:.32;line-height:.5;display:block;margin-bottom:8px;}
+.q-attr{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-lt);margin-top:22px;}
+.q-tags{display:flex;flex-direction:column;gap:10px;}
+.qtag{border:1px solid rgba(90,125,150,.28);color:rgba(255,255,255,.72);padding:9px 14px;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;}
 .qtag:hover{border-color:var(--blue);color:var(--blue-lt);}
 
+/* EASTERN */
+#eastern{background:var(--ink);}
+.e-header{padding:68px 80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:end;border-bottom:1px solid rgba(255,255,255,.06);}
+.e-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;}
+.e-card{padding:48px 38px;background:var(--ink);border-top:1px solid rgba(255,255,255,.05);}
+.e-hanja{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:rgba(90,125,150,.16);line-height:1;margin-bottom:6px;user-select:none;}
+.e-ko{font-size:.62rem;letter-spacing:.18em;color:var(--blue-lt);text-transform:uppercase;display:block;margin-bottom:16px;}
+.e-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#fff;margin-bottom:12px;}
+.e-line{width:20px;height:1px;background:var(--blue);opacity:.4;margin-bottom:16px;}
+.e-body{font-size:.78rem;line-height:1.95;color:rgba(255,255,255,.8);}
+
+/* CONDITIONS */
+#conditions{background:var(--linen);}
+.cond-head{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:end;margin-bottom:52px;}
+.cond-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.cond-card{background:#fff;border:1px solid rgba(90,125,150,.1);overflow:hidden;transition:all .3s;}
+.cond-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 10px 36px rgba(90,125,150,.1);}
+.cond-vis{height:190px;overflow:hidden;position:relative;}
+.cond-vis img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.85);}
+.cond-vis-lbl{position:absolute;bottom:12px;left:14px;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);}
+.cond-body{padding:28px 26px;}
+.cond-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--ink);margin-bottom:4px;}
+.cond-en{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:14px;display:block;}
+.cond-desc{font-size:.76rem;line-height:1.9;color:var(--stone);margin-bottom:16px;}
+.cond-root{background:var(--blue-pale);padding:11px 14px;border-left:2px solid var(--blue);}
+.cond-root strong{display:block;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;font-weight:400;}
+.cond-root p{font-size:.73rem;line-height:1.72;color:var(--blue-dk);}
+
+/* WELLNESS */
+#wellness{display:grid;grid-template-columns:1fr 1fr;min-height:580px;}
+.wellness-txt{padding:68px 56px;background:var(--cream);display:flex;flex-direction:column;justify-content:center;}
+.w-ey{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:14px;}
+.w-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,2.6vw,2.5rem);font-weight:300;line-height:1.2;color:var(--ink);margin-bottom:20px;}
+.w-title em{font-style:italic;color:var(--blue);}
+.w-body{font-size:.8rem;line-height:2;color:var(--stone);margin-bottom:32px;}
+.w-pills{display:flex;flex-direction:column;gap:0;}
+.w-pill{display:flex;gap:16px;padding:18px 0;border-top:1px solid rgba(90,125,150,.12);}
+.w-pill:last-child{border-bottom:1px solid rgba(90,125,150,.12);}
+.w-ico{width:32px;height:32px;border-radius:50%;background:var(--blue-pale);border:1px solid rgba(90,125,150,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--blue-dk);}
+.w-lbl{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:4px;font-weight:400;}
+.w-desc{font-size:.76rem;line-height:1.78;color:var(--stone);}
+.wellness-img{overflow:hidden;}
+.wellness-img img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.82) saturate(.85);}
+
 /* PROGRAMS */
-#programs{background:var(--off);}
-.prog-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:60px;align-items:end;}
+#programs{background:var(--cream);}
+.prog-head{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:48px;align-items:end;}
 .prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;}
-.prog-card{background:#fff;padding:48px 40px;position:relative;overflow:hidden;transition:background .3s;}
+.prog-card{background:#fff;padding:42px 36px;position:relative;overflow:hidden;transition:background .3s;}
 .prog-card:hover{background:var(--linen);}
 .prog-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--blue);transition:height .4s;}
 .prog-card:hover::before{height:100%;}
-.badge{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-lt);display:inline-block;margin-bottom:22px;border:1px solid var(--blue-lt);padding:4px 10px;}
-.badge.sig{background:var(--blue);color:#fff;border-color:var(--blue);}
-.prog-hanja{font-family:'Libre Baskerville',serif;font-size:4rem;color:rgba(90,125,150,.1);line-height:1;margin-bottom:4px;user-select:none;}
-.prog-name{font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);margin-bottom:4px;}
-.prog-en{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:20px;}
-.prog-desc{font-size:.8rem;line-height:1.9;color:#5a5248;margin-bottom:20px;}
-.prog-for{font-size:.72rem;color:var(--blue);line-height:1.8;margin-bottom:28px;}
-.prog-bottom{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(90,125,150,.1);padding-top:22px;}
-.prog-price{font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--ink);}
-.prog-price small{font-family:'Noto Sans KR',sans-serif;font-size:.6rem;color:#5a5248;display:block;margin-top:2px;font-weight:300;}
-.prog-min{font-size:.65rem;letter-spacing:.1em;color:#5a5248;}
+.pbadge{font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-lt);display:inline-block;margin-bottom:18px;border:1px solid var(--blue-lt);padding:3px 9px;}
+.pbadge.sig{background:var(--blue);color:#fff;border-color:var(--blue);}
+.p-hanja{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:rgba(90,125,150,.1);line-height:1;margin-bottom:4px;user-select:none;}
+.p-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--ink);margin-bottom:4px;}
+.p-en{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:16px;}
+.p-desc{font-size:.78rem;line-height:1.9;color:var(--stone);margin-bottom:16px;}
+.p-for{font-size:.7rem;color:var(--blue-dk);line-height:1.8;margin-bottom:24px;}
+.p-bottom{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(90,125,150,.1);padding-top:18px;}
+.p-price{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--ink);}
+.p-price small{font-family:'Noto Sans KR',sans-serif;font-size:.58rem;color:var(--stone);display:block;margin-top:2px;font-weight:300;}
+.p-min{font-size:.6rem;letter-spacing:.1em;color:var(--stone);}
 
-/* SPACE — css illustration gallery */
-#space{background:var(--ink);padding:0;}
-.space-header{padding:80px 80px 48px;}
-.space-header .eyebrow{color:var(--blue-lt);}
-.space-header .sec-title{color:#fff;}
-.space-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:300px 300px;gap:1px;}
-.sp-cell{position:relative;overflow:hidden;}
-.sp-cell.tall{grid-row:span 2;}
+/* SPACE GALLERY */
+#space{background:var(--ink);}
+.space-hdr{padding:60px 80px 40px;}
+.space-hdr .ey{color:var(--blue-lt);}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:2px;}
+.g-cell{overflow:hidden;position:relative;cursor:pointer;}
+.g-cell.tall{grid-row:span 2;}
+.g-cell img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.78);transition:transform .6s,filter .4s;}
+.g-cell:hover img{transform:scale(1.05);filter:brightness(.92) saturate(.88);}
+.g-lbl{position:absolute;bottom:12px;left:16px;font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);pointer-events:none;}
+.g-plus{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border:1px solid rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:1.2rem;opacity:0;transition:opacity .3s;pointer-events:none;}
+.g-cell:hover .g-plus{opacity:1;}
 
-/* each cell = stylized room illustration */
-.sp-cell .room-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative;transition:filter .4s;}
-.sp-cell:hover img{transform:scale(1.04);filter:brightness(.95) saturate(.9);} .sp-cell:hover .room-bg{filter:brightness(1.08);}
-.room-reception{background:linear-gradient(160deg,#4a6f87 0%,#3d5c72 60%,#2e4557 100%);}
-.room-consult{background:linear-gradient(140deg,#5a8099 0%,#4a6f87 100%);}
-.room-treat1{background:linear-gradient(150deg,#c8b9a8 0%,#b8a99a 50%,#a89080 100%);}
-.room-treat2{background:linear-gradient(160deg,#d4c5b4 0%,#c8b9a8 100%);}
-.room-lounge{background:linear-gradient(145deg,#8fafc4 0%,#7a9db4 100%);}
-
-/* decorative elements inside cells */
-.sp-desk{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:80px;height:8px;background:rgba(255,255,255,0.25);border-radius:1px;}
-.sp-desk::before{content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.3);}
-.sp-bed{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:110px;height:45px;background:rgba(255,255,255,0.22);border-radius:2px;}
-.sp-bed::before{content:'';position:absolute;top:-8px;right:10px;width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,.3);}
-.sp-curtain{position:absolute;top:0;left:20px;width:2px;height:100%;background:rgba(255,255,255,0.1);}
-.sp-curtain2{position:absolute;top:0;right:20px;width:2px;height:100%;background:rgba(255,255,255,0.1);}
-.sp-light{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:60px;height:2px;background:rgba(255,255,255,0.35);box-shadow:0 0 12px rgba(255,255,255,0.2);}
-.sp-label{position:absolute;bottom:16px;left:20px;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82);}
-.sp-mirror{position:absolute;top:30px;right:30px;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.25);}
-.sp-shelves{position:absolute;top:30px;left:30px;display:flex;flex-direction:column;gap:8px;}
-.sp-shelf{width:50px;height:4px;background:rgba(255,255,255,.18);}
+/* LIGHTBOX */
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:1000;align-items:center;justify-content:center;flex-direction:column;}
+#lb.open{display:flex;}
+#lb img{max-width:90vw;max-height:85vh;object-fit:contain;}
+.lb-close{position:absolute;top:24px;right:32px;color:rgba(255,255,255,.6);font-size:1.8rem;cursor:pointer;background:none;border:none;line-height:1;transition:color .2s;}
+.lb-close:hover{color:#fff;}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.5);font-size:2rem;cursor:pointer;background:none;border:none;padding:16px;transition:color .2s;line-height:1;}
+.lb-prev{left:20px;}.lb-next{right:20px;}
+.lb-prev:hover,.lb-next:hover{color:#fff;}
+.lb-count{color:rgba(255,255,255,.4);font-size:.7rem;letter-spacing:.2em;margin-top:16px;}
 
 /* BOOKING */
 #booking{background:var(--blue-dk);}
-.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
-.book-grid .eyebrow{color:var(--blue-lt);}
-.book-grid .sec-title{color:#fff;}
-.book-grid .body-txt{color:#5a5248;margin-top:18px;}
-.book-opts{margin-top:40px;display:flex;flex-direction:column;gap:10px;}
-.bopt{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);text-decoration:none;color:#fff;transition:all .22s;}
-.bopt:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.book-ey{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--blue-lt);display:block;margin-bottom:14px;}
+.book-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;color:#fff;line-height:1.2;margin-bottom:18px;}
+.book-title em{font-style:italic;color:var(--blue-lt);}
+.book-body{font-size:.8rem;line-height:2;color:rgba(255,255,255,.68);margin-bottom:36px;}
+.book-opts{display:flex;flex-direction:column;gap:10px;}
+.bopt{display:flex;align-items:center;justify-content:space-between;padding:17px 20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);text-decoration:none;color:#fff;transition:all .22s;}
+.bopt:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);}
 .bopt-l{display:flex;align-items:center;gap:14px;}
 .bopt-ico{font-size:1rem;opacity:.7;}
-.bopt-lbl{font-size:.75rem;letter-spacing:.06em;}
-.bopt-sub{font-size:.62rem;color:rgba(255,255,255,.65);margin-top:2px;}
-.bopt-arr{font-size:.85rem;color:var(--blue-lt);opacity:.6;}
-.book-info{display:flex;flex-direction:column;gap:0;}
-.binfo{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.bopt-lbl{font-size:.74rem;letter-spacing:.06em;}
+.bopt-sub{font-size:.62rem;color:rgba(255,255,255,.42);margin-top:2px;}
+.bopt-arr{font-size:.85rem;color:var(--blue-lt);opacity:.55;}
+.book-info{display:flex;flex-direction:column;}
+.binfo{display:flex;gap:14px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06);}
 .binfo:last-child{border:none;}
 .bdot{width:4px;height:4px;background:var(--blue-lt);border-radius:50%;flex-shrink:0;margin-top:8px;}
-.binfo-body{font-size:.82rem;line-height:2;color:rgba(255,255,255,.85);}
-.binfo-body strong{color:rgba(255,255,255,.7);font-weight:400;display:block;margin-bottom:2px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;}
+.binfo-body{font-size:.78rem;line-height:1.9;color:rgba(255,255,255,.72);}
+.binfo-body strong{color:rgba(255,255,255,.88);font-weight:400;display:block;margin-bottom:2px;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;}
 
-/* map placeholder */
-.map-box{margin-top:28px;background:linear-gradient(135deg,rgba(90,125,150,.3),rgba(61,92,114,.5));height:200px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.08);}
-.map-box span{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.25);}
+/* FOUNDER */
+.founder{background:var(--blue-dk);border-top:1px solid rgba(255,255,255,.06);padding:68px 80px;display:grid;grid-template-columns:1fr 2px 1fr;gap:56px;align-items:center;}
+.f-div{background:rgba(255,255,255,.1);height:100%;}
+.f-q{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,1.8vw,1.6rem);font-style:italic;color:rgba(255,255,255,.9);line-height:1.65;}
+.f-q::before{content:'\201C';font-size:3.5em;color:var(--blue-lt);opacity:.3;line-height:.5;display:block;margin-bottom:10px;}
+.f-attr{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-lt);opacity:.6;margin-top:20px;}
+.f-stats{display:flex;flex-direction:column;}
+.f-stat{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.f-stat:last-child{border:none;}
+.f-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--blue-lt);line-height:1;margin-bottom:3px;}
+.f-lbl{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:6px;}
+.f-desc{font-size:.74rem;line-height:1.78;color:rgba(255,255,255,.5);}
 
 /* FOOTER */
-footer{background:#111;color:rgba(255,255,255,.65);padding:56px 80px 32px;}
-.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:56px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.06);}
-.foot-logo{font-family:'Libre Baskerville',serif;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.28);display:block;margin-bottom:16px;}
-.foot-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:.85rem;color:rgba(255,255,255,.22);line-height:1.7;margin-bottom:18px;}
-.foot-contact{font-size:.72rem;line-height:2.2;color:rgba(255,255,255,.22);}
-.foot-col h5{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--blue-lt);opacity:.45;margin-bottom:20px;}
+footer{background:#111;color:rgba(255,255,255,.28);padding:52px 80px 32px;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:52px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06);}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:.8rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.26);display:block;margin-bottom:14px;}
+.foot-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(255,255,255,.2);line-height:1.7;margin-bottom:16px;}
+.foot-contact{font-size:.72rem;line-height:2.1;color:rgba(255,255,255,.22);}
+.foot-col h5{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--blue-lt);opacity:.42;margin-bottom:18px;}
 .foot-col ul{list-style:none;}
 .foot-col li{margin-bottom:10px;}
-.foot-col a{font-size:.75rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s;}
+.foot-col a{font-size:.74rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s;}
 .foot-col a:hover{color:rgba(255,255,255,.55);}
-.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;flex-wrap:wrap;gap:10px;}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;flex-wrap:wrap;gap:8px;}
 .foot-copy{font-size:.62rem;letter-spacing:.06em;}
 .foot-sns{display:flex;gap:18px;}
 .foot-sns a{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s;}
 .foot-sns a:hover{color:rgba(255,255,255,.5);}
 
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-.reveal{opacity:1;transform:none;}
-
-.reveal-2{opacity:1;transform:none;}
-
-
 /* MOBILE */
 @media(max-width:900px){
-  nav{padding:0 24px;}
-  .nav-center{display:none;}
-  .sec{padding:60px 28px;}
-  #hero{grid-template-columns:1fr;}
-  .hero-visual{height:40vh;}
+  nav{padding:0 24px;}.nav-links{display:none;}
+  .sec{padding:56px 28px;}
+  #hero{grid-template-columns:1fr;height:auto;}
+  .hero-img{height:45vh;}
   .hero-text{padding:48px 28px;}
-  .story-grid,.prog-head,.prog-grid,.shop-head,.shop-grid,.book-grid,.quote-band,.space-grid{grid-template-columns:1fr;gap:32px;}
-  .space-grid{grid-template-rows:200px 200px 200px;}
-  .sp-cell.tall{grid-row:span 1;}
+  .story-banner,.origin-split,.cond-head,.prog-head,#wellness,.book-grid,.founder,.e-header,.quote-band{grid-template-columns:1fr;gap:32px;}
+  .cond-grid,.e-cards,.prog-grid{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .g-cell.tall{grid-row:span 1;}
   .foot-top{grid-template-columns:1fr;}
 }
-
-/* ── STORY SECTION ── */
-
-
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-
-
-
-
-[data-lang-i]{display:none;}[data-lang-i].active{display:inline;}
-
-/* ── LANG SWITCHER (demo only) ── */
-
-
-
-
-/* ══════════════════════════════
-   STORY SECTION
-══════════════════════════════ */
-#story {
-  background: var(--linen);
-  overflow: hidden;
-}
-
-/* ── INTRO BANNER ── */
-.story-banner {
-  background: var(--blue-dk);
-  padding: 72px 80px;
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.story-banner::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: repeating-linear-gradient(
-    135deg, transparent 0, transparent 60px,
-    rgba(255,255,255,.018) 60px, rgba(255,255,255,.018) 61px
-  );
-}
-.story-banner-eyebrow {
-  font-size:.6rem; letter-spacing:.38em; text-transform:uppercase;
-  color:var(--blue-lt); margin-bottom:24px; display:block;
-}
-.story-banner-title {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2.4rem,4vw,4.2rem);
-  font-weight:300; color:#fff; line-height:1.15;
-}
-.story-banner-title em { font-style:italic; color:rgba(255,255,255,.75); }
-.story-banner-right {
-  position:relative; z-index:1;
-}
-.story-banner-quote {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.1rem,1.8vw,1.5rem);
-  font-style:italic; color:rgba(255,255,255,.6);
-  line-height:1.75; border-left:2px solid var(--blue-lt);
-  padding-left:28px; margin-bottom:32px;
-}
-.story-banner-
-
-/* bg hanja */
-.banner-bg-hanja {
-  position:absolute; right:-40px; bottom:-60px;
-  font-family:'Cormorant Garamond',serif;
-  font-size:28rem; font-weight:300; line-height:1;
-  color:rgba(255,255,255,.025); pointer-events:none; user-select:none;
-}
-
-/* ── ORIGIN STORY ── */
-.story-origin {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 620px;
-  align-items: stretch;
-}
-.origin-visual {
-  position: relative;
-  background: linear-gradient(160deg, #b8cdd9 0%, #8fafc4 40%, #6a96b0 100%);
-  overflow: hidden;
-}
-/* Layered architectural illustration */
-.origin-visual::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 40% at 50% 80%, rgba(255,255,255,.12) 0%, transparent 70%),
-    repeating-linear-gradient(0deg, transparent 0, transparent 60px, rgba(255,255,255,.04) 60px, rgba(255,255,255,.04) 61px);
-}
-/* Treatment bed silhouette */
-.origin-bed {
-  position:absolute; bottom:80px; left:50%; transform:translateX(-50%);
-  width:200px; height:70px;
-  background:rgba(255,255,255,.18);
-  border-radius:4px 4px 2px 2px;
-}
-.origin-bed::before {
-  content:''; position:absolute; top:-16px; left:50%; transform:translateX(-50%);
-  width:40px; height:16px; background:rgba(255,255,255,.22); border-radius:20px 20px 0 0;
-}
-.origin-bed::after {
-  content:''; position:absolute; bottom:-20px; left:20px; right:20px; height:20px;
-  background:rgba(255,255,255,.1);
-}
-/* Mirror circle */
-.origin-mirror {
-  position:absolute; top:80px; left:50%; transform:translateX(-50%);
-  width:90px; height:90px; border-radius:50%;
-  border:2px solid rgba(255,255,255,.35);
-  box-shadow:0 0 0 10px rgba(255,255,255,.06), 0 0 40px rgba(255,255,255,.08);
-}
-.origin-mirror::after {
-  content:''; position:absolute; inset:10px; border-radius:50%;
-  border:1px solid rgba(255,255,255,.15);
-}
-/* Light bar */
-.origin-lightbar {
-  position:absolute; top:40px; left:50%; transform:translateX(-50%);
-  width:120px; height:3px; background:rgba(255,255,255,.5);
-  box-shadow:0 0 20px rgba(255,255,255,.3), 0 0 60px rgba(255,255,255,.1);
-}
-/* curtain lines */
-.origin-curtain {position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,.12);}
-.origin-curtain:nth-child(1){left:25%;}
-.origin-curtain:nth-child(2){left:75%;}
-
-.origin-caption {
-  position:absolute; bottom:0; left:0; right:0;
-  background:linear-gradient(transparent, rgba(20,40,55,.7));
-  padding:48px 40px 32px;
-  font-size:.62rem; letter-spacing:.24em; text-transform:uppercase;
-  color:rgba(255,255,255,.55);
-}
-
-.origin-text {
-  padding: 64px 60px;
-  display: flex; flex-direction: column; justify-content: center;
-  background: var(--cream);
-  border-left: 3px solid var(--blue-pale);
-}
-.origin-eyebrow {
-  font-size:.58rem; letter-spacing:.35em; text-transform:uppercase;
-  color:var(--blue); display:block; margin-bottom:20px;
-}
-.origin-title {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.6rem,2.5vw,2.4rem);
-  font-weight:300; line-height:1.25; color:var(--ink); margin-bottom:28px;
-}
-.origin-title em { font-style:italic; color:var(--blue); }
-.origin-
-.origin-body + .origin-
-
-/* ── EASTERN PHILOSOPHY ── */
-.eastern-section {
-  background: var(--ink);
-  padding: 0;
-}
-.eastern-header {
-  padding: 90px 80px 60px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: end;
-}
-.eastern-eyebrow { font-size:.58rem; letter-spacing:.35em; text-transform:uppercase; color:var(--blue-lt); display:block; margin-bottom:18px; }
-.eastern-title {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2rem,3.5vw,3.4rem); font-weight:300; color:#fff; line-height:1.15;
-}
-.eastern-title em { font-style:italic; color:var(--blue-lt); }
-.eastern-intro { font-size:.84rem; line-height:2; color:rgba(255,255,255,.78); padding-top:8px; }
-
-/* philosophy cards */
-.eastern-cards {
-  display: grid; grid-template-columns: repeat(3,1fr); gap:1px;
-  background: rgba(255,255,255,.04);
-}
-.e-card {
-  padding: 56px 44px;
-  background: var(--ink);
-  position: relative; overflow: hidden;
-  transition: background .3s;
-}
-.e-card:hover { background: #1e2830; }
-.e-card::before {
-  content:''; position:absolute; top:0; left:0;
-  width:3px; height:0; background:var(--blue);
-  transition: height .5s ease;
-}
-.e-card:hover::before { height:100%; }
-.e-hanja {
-  font-family:'Cormorant Garamond',serif;
-  font-size:5rem; font-weight:300; color:rgba(90,125,150,.18);
-  line-height:1; margin-bottom:8px; display:block; user-select:none;
-}
-.e-korean {
-  font-size:.7rem; letter-spacing:.2em; color:var(--blue-lt);
-  text-transform:uppercase; display:block; margin-bottom:20px;
-}
-.e-title {
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.3rem; font-weight:400; color:#fff; margin-bottom:16px;
-}
-.e-
-.e-divider { width:24px; height:1px; background:var(--blue); opacity:.4; margin:20px 0; }
-
-/* ── SKIN CONDITIONS ── */
-.conditions-section {
-  padding: 100px 80px;
-  background: var(--linen);
-}
-.cond-header {
-  display: grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:end; margin-bottom:72px;
-}
-.cond-eyebrow { font-size:.58rem; letter-spacing:.35em; text-transform:uppercase; color:var(--blue); display:block; margin-bottom:18px; }
-.cond-title {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; line-height:1.2; color:var(--ink);
-}
-.cond-title em { font-style:italic; color:var(--blue); }
-.cond-intro { font-size:.84rem; line-height:2; color:#5a5248; padding-top:8px; }
-
-.cond-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-.cond-card {
-  background:#fff; padding:0; overflow:hidden;
-  border:1px solid rgba(90,125,150,.1); transition:all .3s;
-  position:relative;
-}
-.cond-card:hover { border-color:var(--blue); box-shadow:0 12px 48px rgba(90,125,150,.12); transform:translateY(-4px); }
-
-/* visual top of each card */
-.cond-visual {
-  height:180px; position:relative; overflow:hidden;
-  display:flex; align-items:center; justify-content:center;
-}
-.cond-visual-acne {
-  background:linear-gradient(145deg,#c5d5e0 0%,#9ab8ca 100%);
-}
-.cond-visual-redness {
-  background:linear-gradient(145deg,#d4c0b8 0%,#c8a99a 100%);
-}
-.cond-visual-sensitive {
-  background:linear-gradient(145deg,#c8d5c0 0%,#a8beaa 100%);
-}
-.cond-vis-circle {
-  width:80px; height:80px; border-radius:50%;
-  border:1px solid rgba(255,255,255,.5);
-  position:relative;
-}
-.cond-vis-circle::before {
-  content:''; position:absolute; inset:12px; border-radius:50%;
-  background:rgba(255,255,255,.25);
-}
-.cond-vis-circle::after {
-  content:''; position:absolute; inset:-12px; border-radius:50%;
-  border:1px solid rgba(255,255,255,.2);
-}
-.cond-vis-label {
-  position:absolute; bottom:16px; left:50%; transform:translateX(-50%);
-  font-size:.55rem; letter-spacing:.24em; text-transform:uppercase;
-  color:rgba(255,255,255,.65); white-space:nowrap;
-}
-.cond-vis-hanja {
-  font-family:'Cormorant Garamond',serif;
-  font-size:4rem; font-weight:300; color:rgba(255,255,255,.65); line-height:1;
-}
-
-.cond-
-.cond-name {
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.3rem; font-weight:400; color:var(--ink); margin-bottom:4px;
-}
-.cond-en { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--blue-lt); margin-bottom:18px; display:block; }
-.cond-desc { font-size:.8rem; line-height:1.9; color:#5a5248; margin-bottom:20px; }
-.cond-root {
-  background:var(--blue-pale); padding:14px 18px;
-  border-left:2px solid var(--blue);
-  font-size:.76rem; line-height:1.75; color:var(--blue-dk);
-}
-.cond-root strong { display:block; font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:var(--blue); margin-bottom:4px; font-weight:400; }
-
-/* ── WELLNESS + MEDICAL ── */
-.wellness-section {
-  background: var(--cream);
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 600px;
-}
-.wellness-text {
-  padding: 64px 60px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.wellness-eyebrow { font-size:.58rem; letter-spacing:.35em; text-transform:uppercase; color:var(--blue); display:block; margin-bottom:20px; }
-.wellness-title {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.8rem,2.8vw,2.8rem); font-weight:300; line-height:1.2; color:var(--ink); margin-bottom:28px;
-}
-.wellness-title em { font-style:italic; color:var(--blue); }
-.wellness-
-
-/* two-column list */
-.wellness-pillars { display:flex; flex-direction:column; gap:0; }
-.w-pillar { display:flex; gap:20px; padding:22px 0; border-top:1px solid rgba(90,125,150,.12); }
-.w-pillar:last-child { border-bottom:1px solid rgba(90,125,150,.12); }
-.w-icon {
-  width:36px; height:36px; border-radius:50%;
-  background:var(--blue-pale); border:1px solid rgba(90,125,150,.2);
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0; font-family:'Cormorant Garamond',serif;
-  font-size:1rem; color:var(--blue-dk);
-}
-.w-label { font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--blue-dk); margin-bottom:6px; font-weight:400; }
-.w-desc { font-size:.8rem; line-height:1.8; color:#5a5248; }
-
-.wellness-visual {
-  position:relative; overflow:hidden;
-  background:linear-gradient(160deg, #3d5c72 0%, #2e4557 50%, #1e3040 100%);
-}
-.wellness-visual img {
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; filter:brightness(.7) saturate(.85);
-}
-.wellness-visual::before {
-  content:''; position:absolute; inset:0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(90,125,150,.3) 0%, transparent 70%),
-    repeating-linear-gradient(90deg, transparent 0, transparent 80px, rgba(255,255,255,.02) 80px, rgba(255,255,255,.02) 81px);
-}
-/* spa illustration */
-.spa-elements { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:20px; }
-.spa-circle-lg {
-  width:200px; height:200px; border-radius:50%;
-  border:1px solid rgba(255,255,255,.12);
-  position:relative; display:flex; align-items:center; justify-content:center;
-}
-.spa-circle-lg::before {
-  content:''; position:absolute; inset:20px; border-radius:50%;
-  border:1px solid rgba(255,255,255,.08);
-}
-.spa-hanja {
-  font-family:'Cormorant Garamond',serif;
-  font-size:5rem; font-weight:300; color:rgba(255,255,255,.2); line-height:1;
-}
-.spa-lines { display:flex; gap:12px; }
-.spa-line { width:1px; height:60px; background:rgba(255,255,255,.12); }
-.wellness-corner {
-  position:absolute; bottom:36px; left:40px; right:40px;
-  text-align:center;
-  font-size:.58rem; letter-spacing:.3em; text-transform:uppercase;
-  color:rgba(255,255,255,.2);
-}
-.wellness-label-top {
-  position:absolute; top:40px; left:0; right:0; text-align:center;
-  font-size:.58rem; letter-spacing:.3em; text-transform:uppercase;
-  color:rgba(255,255,255,.2);
-}
-
-/* ── FOUNDER NOTE ── */
-.founder-section {
-  background: var(--blue-dk);
-  padding: 64px 80px;
-  display: grid;
-  grid-template-columns: 1fr 2px 1fr;
-  gap: 72px;
-  align-items: center;
-}
-.founder-divider { background:rgba(255,255,255,.1); height:100%; }
-.founder-left {}
-.founder-eyebrow { font-size:.58rem; letter-spacing:.35em; text-transform:uppercase; color:var(--blue-lt); display:block; margin-bottom:24px; }
-.founder-quote {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.3rem,2.2vw,2rem); font-style:italic; font-weight:300;
-  color:rgba(255,255,255,.85); line-height:1.65;
-}
-.founder-quote::before {
-  content:'\201C'; font-size:4em; color:var(--blue); opacity:.3;
-  line-height:.5; display:block; margin-bottom:10px;
-}
-.founder-attr {
-  margin-top:28px; font-size:.62rem; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--blue-lt); opacity:.6;
-}
-.founder-right { display:flex; flex-direction:column; gap:28px; }
-.f-stat { }
-.f-num {
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.8rem; font-weight:300; color:var(--blue-lt); line-height:1; margin-bottom:4px;
-}
-.f-label { font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.82); margin-bottom:8px; }
-.f-desc { font-size:.78rem; line-height:1.8; color:rgba(255,255,255,.65); }
-.f-divider { height:1px; background:rgba(255,255,255,.07); }
-
-/* ── ANIMATIONS ── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
-
-.reveal-l{opacity:1;transform:none;}
-
-.reveal-r{opacity:1;transform:none;}
-
-
-
-
-
-
-
 </style>
 </head>
 <body class="lang-ko">
 
 <!-- NAV -->
-<nav id="nav">
+<nav>
   <a href="#" class="nav-logo">CHIYOU <span>IN</span> CHEONGDAM</a>
-  <ul class="nav-center">
+  <ul class="nav-links">
     <li><a href="#story"><span data-lang="ko" class="active">스토리</span><span data-lang="en">Story</span><span data-lang="zh">品牌</span><span data-lang="ja">ストーリー</span></a></li>
+    <li><a href="#eastern"><span data-lang="ko" class="active">동양철학</span><span data-lang="en">Philosophy</span><span data-lang="zh">哲学</span><span data-lang="ja">哲学</span></a></li>
     <li><a href="#programs"><span data-lang="ko" class="active">프로그램</span><span data-lang="en">Programs</span><span data-lang="zh">项目</span><span data-lang="ja">プログラム</span></a></li>
     <li><a href="#space"><span data-lang="ko" class="active">공간</span><span data-lang="en">Space</span><span data-lang="zh">空间</span><span data-lang="ja">空間</span></a></li>
-
     <li><a href="#booking"><span data-lang="ko" class="active">예약</span><span data-lang="en">Book</span><span data-lang="zh">预约</span><span data-lang="ja">予約</span></a></li>
   </ul>
   <div class="nav-right">
@@ -662,9 +289,8 @@ html{scroll-behavior:smooth;}
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-visual" style="padding:0;overflow:hidden;">
-    <img src="Chiyou_0886.jpg" alt="Chiyou In Cheongdam" style="width:100%;height:100%;object-fit:cover;filter:brightness(.88) saturate(.9);">
-    <div style="position:absolute;top:0;right:0;width:3px;height:100%;background:var(--blue);opacity:.5;"></div>
+  <div class="hero-img">
+    <img src="Chiyou_0886.jpg" alt="Chiyou In Cheongdam">
   </div>
   <div class="hero-text">
     <p class="hero-ey">Gangnam-gu · Cheongdam-dong · Seoul</p>
@@ -684,399 +310,44 @@ html{scroll-behavior:smooth;}
 <!-- MANIFESTO -->
 <div id="manifesto">
   <p class="mani">
-    <span data-lang="ko" class="active">"피부과도, 에스테틱도 말하지 않는 것 — 왜 계속 반복되는가."<br><small style="font-size:.55em;letter-spacing:.2em;opacity:.6;font-style:normal;">SKIN IS THE RESULT. WE TREAT THE CAUSE.</small></span>
-    <span data-lang="en">"What clinics and esthetics don't tell you — why it keeps coming back."<br><small style="font-size:.55em;letter-spacing:.2em;opacity:.6;font-style:normal;">SKIN IS THE RESULT. WE TREAT THE CAUSE.</small></span>
-    <span data-lang="zh">"皮肤科和美容院都不告诉你的 — 为什么一直反复。"<br><small style="font-size:.55em;letter-spacing:.2em;opacity:.6;font-style:normal;">SKIN IS THE RESULT. WE TREAT THE CAUSE.</small></span>
-    <span data-lang="ja">"皮膚科もエステも言わないこと — なぜ繰り返すのか。"<br><small style="font-size:.55em;letter-spacing:.2em;opacity:.6;font-style:normal;">SKIN IS THE RESULT. WE TREAT THE CAUSE.</small></span>
+    <span data-lang="ko" class="active">"피부과도, 에스테틱도 말하지 않는 것 — 왜 계속 반복되는가."<span class="mani-sub">Skin is the result. We treat the cause.</span></span>
+    <span data-lang="en">"What clinics and esthetics don't tell you — why it keeps coming back."<span class="mani-sub">Skin is the result. We treat the cause.</span></span>
+    <span data-lang="zh">"皮肤科和美容院都不告诉你的 — 为什么一直反复。"<span class="mani-sub">Skin is the result. We treat the cause.</span></span>
+    <span data-lang="ja">"皮膚科もエステも言わないこと — なぜ繰り返すのか。"<span class="mani-sub">Skin is the result. We treat the cause.</span></span>
   </p>
 </div>
 
+<!-- STORY BANNER -->
 <section id="story">
-
-  <!-- ① INTRO BANNER -->
   <div class="story-banner">
-    <div class="reveal-l">
-      <span class="story-banner-eyebrow">
-        <span data-lang="ko" class="active">브랜드 스토리</span>
-        <span data-lang="en">The Origin</span>
-        <span data-lang="zh">品牌故事</span>
-        <span data-lang="ja">ブランドストーリー</span>
-      </span>
-      <h2 class="story-banner-title">
-        <span data-lang="ko" class="active">반복의 끝에서<br><em>시작된 공간</em></span>
-        <span data-lang="en">Born from the<br><em>frustration of repetition</em></span>
-        <span data-lang="zh">从反复中<br><em>诞生的空间</em></span>
-        <span data-lang="ja">繰り返しの果てに<br><em>生まれた空間</em></span>
-      </h2>
+    <div>
+      <span class="s-banner-ey"><span data-lang="ko" class="active">브랜드 스토리</span><span data-lang="en">The Origin</span><span data-lang="zh">品牌故事</span><span data-lang="ja">ブランドストーリー</span></span>
+      <h2 class="s-banner-title"><span data-lang="ko" class="active">반복의 끝에서<br><em>시작된 공간</em></span><span data-lang="en">Born from the<br><em>frustration of repetition</em></span><span data-lang="zh">从反复中<br><em>诞生的空间</em></span><span data-lang="ja">繰り返しの果てに<br><em>生まれた空間</em></span></h2>
     </div>
-    <div class="story-banner-right reveal-r">
-      <p class="story-banner-quote">
-        <span data-lang="ko" class="active">"왜 똑같은 관리를 반복해도 피부는 나아지지 않을까. 그 질문 하나가 치유인청담을 만들었습니다."</span>
-        <span data-lang="en">"Why does skin fail to improve despite repeated treatments? That single question gave birth to Chiyou In Cheongdam."</span>
-        <span data-lang="zh">"为什么反复进行同样的护理，皮肤却没有改善？正是这一个问题，创造了治愈人清潭。"</span>
-        <span data-lang="ja">"同じケアを繰り返しても肌が改善しないのはなぜか。その一つの問いが、チユインチョンダムを生み出しました。"</span>
-      </p>
-      <p class="story-banner-body">
-        <span data-lang="ko" class="active">치유인청담은 수년간 반복되는 여드름, 홍조, 예민 피부로 고민하는 고객들을 연구하고, 관찰하고, 함께 해결책을 찾아온 여정에서 탄생했습니다. 피부과와 에스테틱을 전전하며 지쳐버린 분들을 위한 공간입니다.</span>
-        <span data-lang="en">Chiyou In Cheongdam was born from years of studying, observing, and seeking solutions alongside clients suffering from recurring acne, chronic redness, and persistent sensitivity. A sanctuary for those exhausted by cycling through clinics and esthetics without resolution.</span>
-        <span data-lang="zh">治愈人清潭诞生于多年来研究、观察并与饱受反复性痘痘、慢性红潮和持续敏感困扰的客户共同寻找解决方案的历程。这是一个为那些在皮肤科和美容院之间疲于奔命却找不到答案的人而建立的空间。</span>
-        <span data-lang="ja">チユインチョンダムは、繰り返すニキビ・慢性的な赤み・持続する敏感肌に悩むお客様を研究し、観察し、共に解決策を探し続けた歳月から生まれました。皮膚科とエステを転々として疲れ果てた方々のための空間です。</span>
-      </p>
+    <div class="s-banner-r">
+      <p class="s-banner-quote"><span data-lang="ko" class="active">"왜 똑같은 관리를 반복해도 피부는 나아지지 않을까. 그 질문 하나가 치유인청담을 만들었습니다."</span><span data-lang="en">"Why does skin fail to improve despite repeated treatments? That single question gave birth to Chiyou In Cheongdam."</span><span data-lang="zh">"为什么反复进行同样的护理，皮肤却没有改善？正是这一个问题，创造了治愈人清潭。"</span><span data-lang="ja">"同じケアを繰り返しても肌が改善しないのはなぜか。その一つの問いが、チユインチョンダムを生み出しました。"</span></p>
+      <p class="s-banner-body"><span data-lang="ko" class="active">치유인청담은 수년간 반복되는 여드름, 홍조, 예민 피부로 고민하는 고객들을 연구하고, 관찰하고, 함께 해결책을 찾아온 여정에서 탄생했습니다. 피부과와 에스테틱을 전전하며 지쳐버린 분들을 위한 공간입니다.</span><span data-lang="en">Chiyou In Cheongdam was born from years of studying, observing, and seeking solutions alongside clients suffering from recurring acne, chronic redness, and persistent sensitivity. A sanctuary for those exhausted by cycling through clinics and esthetics without resolution.</span><span data-lang="zh">治愈人清潭诞生于多年来研究、观察并与饱受反复性痘痘、慢性红潮和持续敏感困扰的客户共同寻找解决方案的历程。</span><span data-lang="ja">チユインチョンダムは、繰り返すニキビ・慢性的な赤み・持続する敏感肌に悩むお客様を研究し、観察し、共に解決策を探し続けた歳月から生まれました。</span></p>
     </div>
-    <div class="banner-bg-hanja">治</div>
+    <div class="banner-bg">治</div>
   </div>
 
-  <!-- ② ORIGIN STORY -->
-  <div class="story-origin">
-    <div class="origin-visual" style="padding:0;overflow:hidden;">
-      <img src="Chiyou_0038.jpg" alt="Treatment" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.9);">
-      <div class="origin-caption">
-        <span data-lang="ko" class="active">Chiyou In Cheongdam · Treatment Room · Gangnam Paragon 3F</span>
-        <span data-lang="en">Chiyou In Cheongdam · Treatment Room · Gangnam Paragon 3F</span>
-        <span data-lang="zh">治愈人清潭 · 护理室 · 江南巴拉贡3F</span>
-        <span data-lang="ja">チユインチョンダム · トリートメントルーム · 江南パラゴン3F</span>
-      </div>
+  <!-- ORIGIN SPLIT -->
+  <div class="origin-split">
+    <div class="origin-img">
+      <img src="Chiyou_0038.jpg" alt="Treatment">
     </div>
-    <div class="origin-text reveal-r">
-      <span class="origin-eyebrow">
-        <span data-lang="ko" class="active">탄생 배경</span>
-        <span data-lang="en">The Research Behind</span>
-        <span data-lang="zh">诞生背景</span>
-        <span data-lang="ja">誕生の背景</span>
-      </span>
-      <h3 class="origin-title">
-        <span data-lang="ko" class="active">고객의 고통을<br>관찰하며 만든 브랜드</span>
-        <span data-lang="en">A brand built by<br><em>listening to suffering</em></span>
-        <span data-lang="zh">通过观察客户痛苦<br><em>而创立的品牌</em></span>
-        <span data-lang="ja">お客様の痛みを<br><em>観察して生まれたブランド</em></span>
-      </h3>
-      <p class="origin-body">
-        <span data-lang="ko" class="active">치유인청담의 대표 테라피스트는 15년이 넘는 임상 경험 속에서 한 가지 공통점을 발견했습니다. 반복적으로 찾아오는 여드름, 홍조, 예민 피부를 가진 고객들의 문제는 '얼굴'에 있지 않다는 것이었습니다.</span>
-        <span data-lang="en">Through over 15 years of clinical practice, the lead therapist of Chiyou In Cheongdam discovered a common thread: clients with recurring acne, chronic redness, and persistent sensitivity shared the same truth — their problem did not originate in the face.</span>
-        <span data-lang="zh">在超过15年的临床经验中，治愈人清潭的首席治疗师发现了一个共同点：反复出现痘痘、慢性红潮和持续敏感的客户们，问题并不在于"脸部"本身。</span>
-        <span data-lang="ja">15年以上の臨床経験を通じて、チユインチョンダムの主任セラピストは一つの共通点を発見しました。繰り返すニキビ・慢性的な赤み・持続する敏感肌を持つお客様の問題は、「顔」にはなかったのです。</span>
-      </p>
-      <p class="origin-body" style="margin-top:20px;">
-        <span data-lang="ko" class="active">피부과를 수십 번 방문하고, 에스테틱도 꾸준히 다녔지만 나아지지 않던 이유 — 그것은 몸 전체의 열(熱) 흐름을 보지 않았기 때문입니다. 치유인청담은 이 통찰에서 출발하여, 동양의 열 이론과 현대 해부학을 결합한 독자적인 케어 시스템을 개발했습니다.</span>
-        <span data-lang="en">Dozens of clinic visits, consistent esthetic treatments, and yet no lasting improvement — because no one was looking at the full picture of heat circulation in the body. From this insight, Chiyou In Cheongdam developed a proprietary care system merging Eastern heat theory with modern anatomy.</span>
-        <span data-lang="zh">去了数十次皮肤科，坚持进行美容护理，却始终没有持久改善——因为没有人着眼于身体整体的热量流动。从这一洞见出发，治愈人清潭开发了将东方热理论与现代解剖学相结合的独特护理系统。</span>
-        <span data-lang="ja">何十回も皮膚科を訪れ、エステにも通い続けたが改善しない理由——それは、体全体の熱の流れを見ていなかったからです。この洞察から出発し、チユインチョンダムは東洋の熱理論と現代解剖学を組み合わせた独自のケアシステムを開発しました。</span>
-      </p>
-    </div>
-  </div>
-
-  <!-- ③ EASTERN PHILOSOPHY -->
-  <div class="eastern-section">
-    <div class="eastern-header">
-      <div class="reveal-l">
-        <span class="eastern-eyebrow">
-          <span data-lang="ko" class="active">동양 철학 기반 케어</span>
-          <span data-lang="en">Eastern Philosophy · Understanding the Root</span>
-          <span data-lang="zh">东方哲学护理</span>
-          <span data-lang="ja">東洋哲学に基づくケア</span>
-        </span>
-        <h3 class="eastern-title">
-          <span data-lang="ko" class="active">열(熱)이란 무엇인가</span>
-          <span data-lang="en">What is <em>Yeol</em>?<br>Understanding Eastern Heat</span>
-          <span data-lang="zh">什么是热(熱)?<br><em>东方热理论解读</em></span>
-          <span data-lang="ja">熱（ヨル）とは何か<br><em>東洋の熱理論を理解する</em></span>
-        </h3>
-      </div>
-      <div class="reveal-r">
-        <p class="eastern-intro">
-          <span data-lang="ko" class="active">동양 전통 의학에서 '열(熱)'은 단순한 체온이 아닙니다. 몸 안의 에너지 흐름이자, 생명력의 방향입니다. 이 열이 위로 과도하게 쏠릴 때 — 상열하한(上熱下寒) — 피부는 신호를 보냅니다. 트러블, 홍조, 염증이 바로 그 신호입니다.</span>
-          <span data-lang="en">In Eastern traditional medicine, "Yeol" (熱 · heat) is not simply body temperature. It is the direction of life energy flowing through the body. When this heat accumulates excessively upward — a condition called "Sang-yeol Ha-han" (上熱下寒, upper heat/lower cold) — the skin sends signals. Breakouts, redness, and inflammation are exactly those signals.</span>
-          <span data-lang="zh">在东方传统医学中，"热"不仅仅是体温。它是体内能量的流动方向，也是生命力的指向。当这种热气过度向上聚集时——即"上热下寒"——皮肤就会发出信号。痘痘、红潮和炎症，正是这些信号。</span>
-          <span data-lang="ja">東洋伝統医学において「熱（ヨル）」は、単なる体温ではありません。体内のエネルギーの流れであり、生命力の方向性です。この熱が過度に上に集まるとき——「上熱下寒」——皮膚はシグナルを送ります。ニキビ・赤み・炎症がまさにそのシグナルです。</span>
-        </p>
-      </div>
-    </div>
-    <div class="eastern-cards">
-      <div class="e-card reveal stagger-1">
-        <span class="e-hanja">水</span>
-        <span class="e-korean">수열 · Suyeol</span>
-        <h4 class="e-title">
-          <span data-lang="ko" class="active">흐름의 시작</span>
-          <span data-lang="en">The Beginning of Flow</span>
-          <span data-lang="zh">流动的开始</span>
-          <span data-lang="ja">流れの始まり</span>
-        </h4>
-        <div class="e-divider"></div>
-        <p class="e-body">
-          <span data-lang="ko" class="active">수열은 물의 흐름을 상징합니다. 몸 안에서 수분과 에너지가 고여버릴 때, 피부는 가장 먼저 반응합니다. 막힌 모공, 반복되는 좁쌀, 속건조가 모두 흐르지 못하는 열의 신호입니다. 치유인청담의 첫 번째 단계는 이 흐름을 열어주는 것에서 시작합니다.</span>
-          <span data-lang="en">Suyeol symbolizes the flow of water. When moisture and energy stagnate within the body, the skin is the first to respond. Clogged pores, recurring milia, and inner dryness are all signals of heat that cannot flow. Our first stage begins with opening this flow.</span>
-          <span data-lang="zh">水热象征着水的流动。当身体内的水分和能量停滞时，皮肤最先做出反应。堵塞的毛孔、反复出现的闭口粉刺、内部干燥——这些都是热气无法流动的信号。治愈人清潭的第一阶段，从打开这种流动开始。</span>
-          <span data-lang="ja">水熱は水の流れを象徴します。体内の水分とエネルギーが滞ると、肌が最初に反応します。詰まった毛穴・繰り返す白ニキビ・内側の乾燥、これらすべてが流れない熱のシグナル。私たちの第一段階はこの流れを開くことから始まります。</span>
-        </p>
-      </div>
-      <div class="e-card reveal stagger-2">
-        <span class="e-hanja">通</span>
-        <span class="e-korean">통열 · Tongyeol</span>
-        <h4 class="e-title">
-          <span data-lang="ko" class="active">통로를 열다</span>
-          <span data-lang="en">Opening the Pathway</span>
-          <span data-lang="zh">开启通道</span>
-          <span data-lang="ja">通路を開く</span>
-        </h4>
-        <div class="e-divider"></div>
-        <p class="e-body">
-          <span data-lang="ko" class="active">통열은 막힌 길을 뚫는 것을 의미합니다. 동양 의학에서 '통(通)'은 기(氣)와 혈(血)이 자유롭게 순환하는 상태를 뜻합니다. 복부, 림프, 데콜테를 연결하여 상체 전체의 순환을 개통하면, 얼굴로 쏠린 과잉 에너지가 비로소 아래로 내려갑니다.</span>
-          <span data-lang="en">Tongyeol means clearing a blocked path. In Eastern medicine, "Tong" (通) refers to the state where Ki (energy) and blood circulate freely. By connecting the abdomen, lymph system, and décolleté to open full upper-body circulation, excess energy pooled in the face can finally descend.</span>
-          <span data-lang="zh">通热意味着疏通堵塞的道路。在东方医学中，"通"指气（能量）和血液自由循环的状态。通过连接腹部、淋巴和锁骨，开通上半身整体循环，聚集在脸部的过剩能量才能最终向下流动。</span>
-          <span data-lang="ja">通熱とは、塞がった道を開くことを意味します。東洋医学において「通」とは、気（エネルギー）と血液が自由に循環する状態を指します。腹部・リンパ・デコルテを連結して上半身全体の循環を開通させると、顔に集まっていた過剰なエネルギーがようやく下に降りていきます。</span>
-        </p>
-      </div>
-      <div class="e-card reveal stagger-3">
-        <span class="e-hanja">降</span>
-        <span class="e-korean">홍열 · Hongyeol</span>
-        <h4 class="e-title">
-          <span data-lang="ko" class="active">열을 내리다</span>
-          <span data-lang="en">Bringing Heat Downward</span>
-          <span data-lang="zh">降热归根</span>
-          <span data-lang="ja">熱を下ろす</span>
-        </h4>
-        <div class="e-divider"></div>
-        <p class="e-body">
-          <span data-lang="ko" class="active">홍열은 붉음의 열입니다. 얼굴의 홍조, 지속되는 트러블, 스트레스로 인한 피부 반응은 모두 몸의 열이 위로 과도하게 쏠린 상태입니다. 심(心·마음)과 궁(宮·자궁/골반)의 두 가지 접근으로, 열이 쏠리는 근원을 차단하고 몸 전체의 균형을 회복합니다.</span>
-          <span data-lang="en">Hongyeol is the heat of redness. Facial flushing, persistent breakouts, stress-reactive skin — these are all manifestations of heat excessively accumulating upward. Through two approaches — Sim (心·mind) and Gung (宮·pelvis) — we block the source of heat accumulation and restore whole-body balance.</span>
-          <span data-lang="zh">红热是红色的热。面部红潮、持续性痘痘、因压力引起的皮肤反应——这些都是热气过度向上聚集的表现。通过"心"（内心/情绪）和"宫"（子宫/骨盆）两种方法，我们阻断热气聚集的根源，恢复全身平衡。</span>
-          <span data-lang="ja">紅熱は赤みの熱です。顔の紅潮・持続するニキビ・ストレス反応性の肌——これらはすべて熱が過度に上に集まっている状態の表れです。心（こころ）と宮（骨盤）の二つのアプローチで、熱が集まる根源を遮断し、全身のバランスを回復します。</span>
-        </p>
+    <div class="origin-text">
+      <span class="o-ey"><span data-lang="ko" class="active">탄생 배경</span><span data-lang="en">The Research Behind</span><span data-lang="zh">诞生背景</span><span data-lang="ja">誕生の背景</span></span>
+      <h3 class="o-title"><span data-lang="ko" class="active">고객의 고통을<br>관찰하며 만든 브랜드</span><span data-lang="en">A brand built by<br><em>listening to suffering</em></span><span data-lang="zh">通过观察客户痛苦<br><em>而创立的品牌</em></span><span data-lang="ja">お客様の痛みを<br><em>観察して生まれたブランド</em></span></h3>
+      <p class="o-body"><span data-lang="ko" class="active">치유인청담의 대표 테라피스트는 15년이 넘는 임상 경험 속에서 한 가지 공통점을 발견했습니다. 반복적으로 찾아오는 여드름, 홍조, 예민 피부를 가진 고객들의 문제는 '얼굴'에 있지 않다는 것이었습니다.</span><span data-lang="en">Through over 15 years of clinical practice, the lead therapist discovered a common thread: clients with recurring acne, chronic redness, and persistent sensitivity shared the same truth — their problem did not originate in the face.</span><span data-lang="zh">在超过15年的临床经验中，首席治疗师发现了一个共同点：反复出现痘痘、慢性红潮和持续敏感的客户们，问题并不在于"脸部"本身。</span><span data-lang="ja">15年以上の臨床経験を通じて、主任セラピストは一つの共通点を発見しました。繰り返すニキビ・赤み・敏感肌の問題は、「顔」にはなかったのです。</span></p>
+      <p class="o-body"><span data-lang="ko" class="active">피부과를 수십 번 방문하고, 에스테틱도 꾸준히 다녔지만 나아지지 않던 이유 — 그것은 몸 전체의 열(熱) 흐름을 보지 않았기 때문입니다. 치유인청담은 이 통찰에서 출발하여, 동양의 열 이론과 현대 해부학을 결합한 독자적인 케어 시스템을 개발했습니다.</span><span data-lang="en">Dozens of clinic visits, consistent esthetic treatments, and yet no lasting improvement — because no one was looking at the body's heat circulation. From this insight, Chiyou In Cheongdam developed a proprietary care system merging Eastern heat theory with modern anatomy.</span><span data-lang="zh">去了数十次皮肤科，坚持进行美容护理，却始终没有持久改善——因为没有人着眼于身体整体的热量流动。</span><span data-lang="ja">何十回も皮膚科を訪れ、エステにも通い続けたが改善しない理由——それは体全体の熱の流れを見ていなかったからです。</span></p>
+      <div class="pillars">
+        <div class="pillar"><div class="p-num">01</div><div><p class="p-title"><span data-lang="ko" class="active">해부학 기반 수기 테크닉</span><span data-lang="en">Anatomy-Based Manual Technique</span><span data-lang="zh">基于解剖学的手技</span><span data-lang="ja">解剖学に基づく手技</span></p><p class="p-body"><span data-lang="ko" class="active">근육 구조, 림프 흐름, 지방층까지 이해한 정밀 수기로 자연스러운 윤곽과 지속 가능한 리프팅을 실현합니다.</span><span data-lang="en">Precision therapy informed by muscle structure, lymph flow, and fat layer positioning for natural contouring and lasting lift.</span><span data-lang="zh">深入理解肌肉结构、淋巴流动和脂肪层，实现自然轮廓和持久提拉。</span><span data-lang="ja">筋肉構造・リンパ・脂肪層を理解した精密な手技で自然なリフトアップを実現。</span></p></div></div>
+        <div class="pillar"><div class="p-num">02</div><div><p class="p-title"><span data-lang="ko" class="active">임상 중심 문제성 피부 케어</span><span data-lang="en">Clinical Approach to Problematic Skin</span><span data-lang="zh">临床为中心的问题肌肤护理</span><span data-lang="ja">臨床中心の問題肌ケア</span></p><p class="p-body"><span data-lang="ko" class="active">여드름 피부도 윤곽 관리가 가능한 유일한 공간. 진단→접근→진정→회복 단계별 솔루션.</span><span data-lang="en">The only space where acne-prone skin can receive contouring. Diagnosis → approach → calm → recovery.</span><span data-lang="zh">即使是痘痘肌也可以接受轮廓管理的唯一空间。</span><span data-lang="ja">ニキビ肌でもフェイスラインケアができる唯一の空間。</span></p></div></div>
+        <div class="pillar"><div class="p-num">03</div><div><p class="p-title"><span data-lang="ko" class="active">글로벌 응대 시스템</span><span data-lang="en">International Guest Experience</span><span data-lang="zh">国际服务系统</span><span data-lang="ja">グローバル対応システム</span></p><p class="p-body"><span data-lang="ko" class="active">영어·중국어·일본어 상담 가능. 여행자, 거주자, 유학생을 위한 맞춤 예약 시스템.</span><span data-lang="en">English, Chinese & Japanese consultations available. Tailored booking for travelers, residents, and students.</span><span data-lang="zh">提供英语、中文、日语咨询。为旅行者、居民和留学生量身定制的预约系统。</span><span data-lang="ja">英語・中国語・日本語対応可能。旅行者・居住者・留学生向けの予約システム。</span></p></div></div>
       </div>
     </div>
   </div>
-
-  <!-- ④ SKIN CONDITIONS -->
-  <div class="conditions-section">
-    <div class="cond-header">
-      <div class="reveal-l">
-        <span class="cond-eyebrow">
-          <span data-lang="ko" class="active">주요 케어 대상</span>
-          <span data-lang="en">Who We Help · Skin Conditions</span>
-          <span data-lang="zh">主要护理对象</span>
-          <span data-lang="ja">主なケア対象</span>
-        </span>
-        <h3 class="cond-title">
-          <span data-lang="ko" class="active">반복의 악순환을<br><em>끊어드립니다</em></span>
-          <span data-lang="en">Breaking the cycle<br><em>of repetition</em></span>
-          <span data-lang="zh">打破<br><em>反复的恶性循环</em></span>
-          <span data-lang="ja">繰り返しの<br><em>悪循環を断ち切る</em></span>
-        </h3>
-      </div>
-      <div class="reveal-r">
-        <p class="cond-intro">
-          <span data-lang="ko" class="active">치유인청담은 특히 세 가지 피부 상태를 깊이 연구해왔습니다. 오랜 시간 고객들과 함께하며 발견한 공통된 원인과, 그 원인에 맞는 접근 방식을 소개합니다.</span>
-          <span data-lang="en">Chiyou In Cheongdam has spent years in deep study of three particular skin conditions. Discovered through long observation of clients, here we share the common root causes and our tailored approach to each.</span>
-          <span data-lang="zh">治愈人清潭深入研究了三种特定的皮肤状况。通过与客户长期相处后发现的共同根本原因，以及针对这些原因的解决方法。</span>
-          <span data-lang="ja">チユインチョンダムは特に三つの肌状態を長年深く研究してきました。お客様との長い観察から発見した共通の根本原因と、それぞれに合ったアプローチをご紹介します。</span>
-        </p>
-      </div>
-    </div>
-    <div class="cond-grid">
-      <!-- ACNE -->
-      <div class="cond-card reveal stagger-1">
-        <div class="cond-visual cond-visual-acne">
-          <span class="cond-vis-hanja">痘</span>
-          <div class="cond-vis-circle"></div>
-          <div class="cond-vis-label">
-            <span data-lang="ko" class="active">여드름 피부</span>
-            <span data-lang="en">Acne-Prone</span>
-            <span data-lang="zh">痘痘肌</span>
-            <span data-lang="ja">ニキビ肌</span>
-          </div>
-        </div>
-        <div class="cond-body">
-          <h4 class="cond-name"><span data-lang="ko" class="active">반복되는 여드름</span><span data-lang="en">Recurring Acne</span><span data-lang="zh">反复性痘痘</span><span data-lang="ja">繰り返すニキビ</span></h4>
-          <span class="cond-en">Acne · 여드름 · 痘痘 · ニキビ</span>
-          <p class="cond-desc">
-            <span data-lang="ko" class="active">고쳤다고 생각했는데 다시 올라오는 여드름. 피부과 약을 먹어도, 압출을 해도, 화장품을 바꿔도 반복됩니다. 좁쌀 여드름, 화농성 여드름, 등·가슴 여드름까지 — 이 모든 것이 피부 표면의 문제가 아니라, 몸 안의 열 불균형 신호입니다.</span>
-            <span data-lang="en">Acne that returns just when you thought it was gone. Antibiotics, extractions, new skincare — nothing holds. Milia, cystic acne, back and chest acne — all are not surface problems, but signals of heat imbalance deep within the body.</span>
-            <span data-lang="zh">以为好了，却又反复出现的痘痘。吃了皮肤科的药，做了清洁，换了护肤品，依然反复。闭口粉刺、脓包型痘痘、背部和胸部痘痘——这一切都不是皮肤表面的问题，而是体内热量失衡的信号。</span>
-            <span data-lang="ja">治ったと思ったのにまた出てくるニキビ。皮膚科の薬を飲んでも、圧出しても、スキンケアを変えても繰り返す。白ニキビ・化膿性ニキビ・背中や胸のニキビ——これらはすべて肌表面の問題ではなく、体内の熱アンバランスのシグナルです。</span>
-          </p>
-          <div class="cond-root">
-            <strong><span data-lang="ko" class="active">근본 원인</span><span data-lang="en">Root Cause</span><span data-lang="zh">根本原因</span><span data-lang="ja">根本的な原因</span></strong>
-            <span data-lang="ko" class="active">위로 쏠린 열이 모공을 막고 피지 분비를 과활성화. 장·소화 기능 저하가 피부로 표출.</span>
-            <span data-lang="en">Heat accumulating upward blocks pores and over-activates sebum production. Compromised digestive function manifesting through the skin.</span>
-            <span data-lang="zh">向上聚集的热气堵塞毛孔并过度激活皮脂分泌。消化功能下降通过皮肤表现出来。</span>
-            <span data-lang="ja">上に集まる熱が毛穴を塞ぎ皮脂分泌を過活性化。消化機能の低下が肌に現れる。</span>
-          </div>
-        </div>
-      </div>
-      <!-- REDNESS -->
-      <div class="cond-card reveal stagger-2">
-        <div class="cond-visual cond-visual-redness">
-          <span class="cond-vis-hanja">紅</span>
-          <div class="cond-vis-circle"></div>
-          <div class="cond-vis-label">
-            <span data-lang="ko" class="active">홍조 피부</span>
-            <span data-lang="en">Chronic Redness</span>
-            <span data-lang="zh">红潮肌</span>
-            <span data-lang="ja">慢性赤み肌</span>
-          </div>
-        </div>
-        <div class="cond-body">
-          <h4 class="cond-name"><span data-lang="ko" class="active">만성 홍조</span><span data-lang="en">Chronic Redness</span><span data-lang="zh">慢性红潮</span><span data-lang="ja">慢性的な赤み</span></h4>
-          <span class="cond-en">Redness · 홍조 · 红潮 · 赤み</span>
-          <p class="cond-desc">
-            <span data-lang="ko" class="active">조금만 더워도, 조금만 자극받아도 빨개지는 얼굴. 화장이 들뜨고, 사람들 앞에 서는 게 두려워지는 만성 홍조. 실핏줄이 터진 것 같은 붉은 피부. 레이저를 맞아도 금방 돌아오는 홍조 — 이것은 혈관의 문제가 아니라 열의 방향 문제입니다.</span>
-            <span data-lang="en">A face that flushes at the slightest heat or stimulus. Makeup that won't sit still, the fear of facing people with chronic redness. Skin that looks like it's full of broken capillaries. Redness that returns quickly even after laser treatments — this is not a vascular problem, but a problem of heat direction.</span>
-            <span data-lang="zh">稍微热一点、稍微受到刺激就会变红的脸。妆容浮起，害怕出现在人前的慢性红潮。看起来像毛细血管破裂一样的红色皮肤。即使做了激光治疗，红潮也很快复发——这不是血管问题，而是热的方向问题。</span>
-            <span data-lang="ja">少し暑くなるだけで、少し刺激を受けるだけで赤くなる顔。ファンデーションが浮き、人前に立つことが怖くなる慢性的な赤み。毛細血管が破れたような赤い肌。レーザー治療を受けてもすぐに戻る赤み——これは血管の問題ではなく、熱の方向の問題です。</span>
-          </p>
-          <div class="cond-root">
-            <strong><span data-lang="ko" class="active">근본 원인</span><span data-lang="en">Root Cause</span><span data-lang="zh">根本原因</span><span data-lang="ja">根本的な原因</span></strong>
-            <span data-lang="ko" class="active">상열하한(上熱下寒) — 열이 아래로 내려가지 못하고 얼굴에 과잉 집중. 골반·자궁 냉증이 주요 원인.</span>
-            <span data-lang="en">Sang-yeol Ha-han (upper heat, lower cold) — heat unable to descend, concentrating excessively in the face. Pelvic and uterine coldness as a primary driver.</span>
-            <span data-lang="zh">上热下寒——热气无法下降，过度集中在脸部。骨盆和子宫的寒凉是主要原因。</span>
-            <span data-lang="ja">上熱下寒——熱が下りられず顔に過剰集中。骨盤・子宮の冷えが主要な原因。</span>
-          </div>
-        </div>
-      </div>
-      <!-- SENSITIVE -->
-      <div class="cond-card reveal stagger-3">
-        <div class="cond-visual cond-visual-sensitive">
-          <span class="cond-vis-hanja">敏</span>
-          <div class="cond-vis-circle"></div>
-          <div class="cond-vis-label">
-            <span data-lang="ko" class="active">예민 피부</span>
-            <span data-lang="en">Sensitive Skin</span>
-            <span data-lang="zh">敏感肌</span>
-            <span data-lang="ja">敏感肌</span>
-          </div>
-        </div>
-        <div class="cond-body">
-          <h4 class="cond-name"><span data-lang="ko" class="active">만성 예민 피부</span><span data-lang="en">Chronic Sensitivity</span><span data-lang="zh">慢性敏感肌</span><span data-lang="ja">慢性敏感肌</span></h4>
-          <span class="cond-en">Sensitivity · 예민 · 敏感 · 敏感</span>
-          <p class="cond-desc">
-            <span data-lang="ko" class="active">뭘 발라도 따갑고, 조금만 자극받아도 빨개지는 피부. 새로운 화장품이 두렵고, 계절이 바뀔 때마다 트러블이 생깁니다. 장벽이 무너진 것 같은 이 피부는, 사실 몸 전체의 면역과 자율신경이 예민해진 상태의 반영입니다.</span>
-            <span data-lang="en">Skin that stings with anything applied, flushes at the slightest provocation. Fear of new products, breakouts with every season change. This skin that feels barrier-less is, in fact, a reflection of the entire body's immune system and autonomic nervous system in a state of heightened sensitivity.</span>
-            <span data-lang="zh">涂什么都刺痛，稍微受到刺激就发红的皮肤。对新护肤品感到恐惧，每次换季都会出现问题。这种感觉屏障崩溃的皮肤，实际上是全身免疫系统和自律神经变得敏感的反映。</span>
-            <span data-lang="ja">何を塗っても沁みて、少し刺激を受けるだけで赤くなる肌。新しいスキンケアが怖くて、季節の変わり目のたびにトラブルが出る。バリアが崩れたようなこの肌は、実は全身の免疫と自律神経系が過敏になった状態の反映です。</span>
-          </p>
-          <div class="cond-root">
-            <strong><span data-lang="ko" class="active">근본 원인</span><span data-lang="en">Root Cause</span><span data-lang="zh">根本原因</span><span data-lang="ja">根本的な原因</span></strong>
-            <span data-lang="ko" class="active">교감신경 과활성화, 스트레스성 열 상승, 피부 장벽 기능 저하. 몸의 자기 회복력 소진 상태.</span>
-            <span data-lang="en">Overactivation of the sympathetic nervous system, stress-induced heat rise, compromised skin barrier function. The body's self-recovery capacity in a state of depletion.</span>
-            <span data-lang="zh">交感神经过度激活，压力性热气上升，皮肤屏障功能下降。身体自我恢复能力耗尽的状态。</span>
-            <span data-lang="ja">交感神経の過活性化、ストレス性の熱上昇、皮膚バリア機能の低下。身体の自己回復力が枯渇した状態。</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ⑤ WELLNESS + MEDICAL -->
-  <div class="wellness-section">
-    <div class="wellness-text reveal-l">
-      <span class="wellness-eyebrow">
-        <span data-lang="ko" class="active">웰니스 × 메디컬의 조화</span>
-        <span data-lang="en">Where Wellness Meets Medical</span>
-        <span data-lang="zh">健康与医疗的和谐</span>
-        <span data-lang="ja">ウェルネスとメディカルの融合</span>
-      </span>
-      <h3 class="wellness-title">
-        <span data-lang="ko" class="active">치료가 아닌<br><em>회복의 공간</em></span>
-        <span data-lang="en">Not treatment,<br><em>but restoration</em></span>
-        <span data-lang="zh">不是治疗，<br><em>而是恢复的空间</em></span>
-        <span data-lang="ja">治療ではなく、<br><em>回復の空間</em></span>
-      </h3>
-      <p class="wellness-body">
-        <span data-lang="ko" class="active">치유인청담은 병원도, 일반 에스테틱도 아닙니다. 동양 의학의 철학적 깊이와 현대 해부학의 정밀함이 만나는 고급 웰니스 공간입니다. 약이 아닌 손으로, 기계가 아닌 인체에 대한 이해로 피부를 바꿉니다.</span>
-        <span data-lang="en">Chiyou In Cheongdam is neither a hospital nor a conventional esthetic. It is a luxury wellness space where the philosophical depth of Eastern medicine meets the precision of modern anatomy. We change skin not with medicine but with hands, not with machines but with a deep understanding of the human body.</span>
-        <span data-lang="zh">治愈人清潭既不是医院，也不是普通美容院。它是东方医学的哲学深度与现代解剖学的精准性相遇的高端健康空间。我们不用药物，而用双手；不用机器，而用对人体的深刻理解来改变皮肤。</span>
-        <span data-lang="ja">チユインチョンダムは病院でも一般的なエステでもありません。東洋医学の哲学的深みと現代解剖学の精密さが出会う高級ウェルネス空間です。薬ではなく手で、機械ではなく人体への深い理解で肌を変えます。</span>
-      </p>
-      <div class="wellness-pillars">
-        <div class="w-pillar">
-          <div class="w-icon">熱</div>
-          <div>
-            <p class="w-label"><span data-lang="ko" class="active">열 리포밍 시스템</span><span data-lang="en">Heat Reforming System</span><span data-lang="zh">热重塑系统</span><span data-lang="ja">熱リフォーミングシステム</span></p>
-            <p class="w-desc"><span data-lang="ko" class="active">동양 열 이론 기반의 독자적 케어 시스템. 약이나 기계가 아닌 손의 기술.</span><span data-lang="en">A proprietary care system based on Eastern heat theory. The art of the hand, not machines or medicine.</span><span data-lang="zh">基于东方热理论的独特护理系统。手的技艺，而非药物或机器。</span><span data-lang="ja">東洋の熱理論に基づく独自のケアシステム。薬でも機械でもなく、手の技術。</span></p>
-          </div>
-        </div>
-        <div class="w-pillar">
-          <div class="w-icon">解</div>
-          <div>
-            <p class="w-label"><span data-lang="ko" class="active">현대 해부학 기반</span><span data-lang="en">Modern Anatomy Foundation</span><span data-lang="zh">现代解剖学基础</span><span data-lang="ja">現代解剖学の基盤</span></p>
-            <p class="w-desc"><span data-lang="ko" class="active">근육·림프·지방층의 구조를 이해한 과학적 수기. 임상적 근거 위에 쌓인 테크닉.</span><span data-lang="en">Scientific manual therapy informed by muscle, lymph, and fat layer structure. Technique built upon clinical evidence.</span><span data-lang="zh">基于肌肉、淋巴和脂肪层结构的科学手技。建立在临床证据之上的技术。</span><span data-lang="ja">筋肉・リンパ・脂肪層の構造を理解した科学的手技。臨床的根拠の上に積み上げられた技術。</span></p>
-          </div>
-        </div>
-        <div class="w-pillar">
-          <div class="w-icon">癒</div>
-          <div>
-            <p class="w-label"><span data-lang="ko" class="active">하이엔드 스파 경험</span><span data-lang="en">High-End Spa Experience</span><span data-lang="zh">高端水疗体验</span><span data-lang="ja">ハイエンドスパ体験</span></p>
-            <p class="w-desc"><span data-lang="ko" class="active">효과만이 아닌 경험 자체가 치유입니다. 공간, 향기, 손길, 침묵까지 — 모든 것이 설계되어 있습니다.</span><span data-lang="en">Not just results, but the experience itself is healing. Space, scent, touch, silence — everything is intentionally designed.</span><span data-lang="zh">不仅仅是效果，体验本身就是治愈。空间、香气、触感、静默——一切都经过精心设计。</span><span data-lang="ja">効果だけでなく、体験そのものが癒しです。空間・香り・手の感触・静寂まで——すべてが設計されています。</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="wellness-visual">
-      <img src="Chiyou_0192.jpg" alt="Treatment">
-      <div class="wellness-label-top">
-        <span data-lang="ko" class="active">WELLNESS × MEDICAL · CHEONGDAM</span>
-        <span data-lang="en">WELLNESS × MEDICAL · CHEONGDAM</span>
-        <span data-lang="zh">WELLNESS × MEDICAL · 清潭</span>
-        <span data-lang="ja">WELLNESS × MEDICAL · 清潭</span>
-      </div>
-      <div class="spa-elements">
-        <div class="spa-circle-lg">
-          <span class="spa-hanja">癒</span>
-        </div>
-        <div class="spa-lines">
-          <div class="spa-line"></div>
-          <div class="spa-line"></div>
-          <div class="spa-line"></div>
-        </div>
-      </div>
-      <div class="wellness-corner">
-        <span data-lang="ko" class="active">동양 철학 · 현대 해부학 · 하이엔드 스파</span>
-        <span data-lang="en">Eastern Philosophy · Modern Anatomy · High-End Spa</span>
-        <span data-lang="zh">东方哲学 · 现代解剖学 · 高端水疗</span>
-        <span data-lang="ja">東洋哲学 · 現代解剖学 · ハイエンドスパ</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ⑥ FOUNDER NOTE -->
-  <div class="founder-section">
-    <div class="reveal-l">
-      <span class="founder-eyebrow">
-        <span data-lang="ko" class="active">테라피스트의 말</span>
-        <span data-lang="en">A Note from the Therapist</span>
-        <span data-lang="zh">治疗师的话</span>
-        <span data-lang="ja">セラピストより</span>
-      </span>
-      <p class="founder-quote">
-        <span data-lang="ko" class="active">"당신의 피부가 반복되는 이유는, 아직 원인을 찾지 못했기 때문입니다. 저희는 그 원인을 함께 찾아드리기 위해 이 공간을 만들었습니다."</span>
-        <span data-lang="en">"The reason your skin keeps repeating is that the root cause hasn't been found yet. We created this space to find that cause — together with you."</span>
-        <span data-lang="zh">"您的皮肤之所以反复，是因为还没有找到根本原因。我们创建了这个空间，就是为了与您一起找到那个原因。"</span>
-        <span data-lang="ja">"あなたの肌が繰り返す理由は、まだ原因が見つかっていないからです。私たちはその原因を一緒に探すために、この空間を作りました。"</span>
-      </p>
-      <p class="founder-attr">— Lead Therapist · Chiyou In Cheongdam</p>
-    </div>
-    <div class="founder-divider"></div>
-    <div class="founder-right reveal-r">
-      <div class="f-stat">
-        <div class="f-num">15+</div>
-        <div class="f-label"><span data-lang="ko" class="active">년간의 임상 경험</span><span data-lang="en">Years of Clinical Practice</span><span data-lang="zh">年临床经验</span><span data-lang="ja">年間の臨床経験</span></div>
-        <div class="f-desc"><span data-lang="ko" class="active">문제성 피부 전문 테라피스트로서의 현장 연구와 임상 관찰</span><span data-lang="en">Field research and clinical observation as a specialist therapist for problematic skin</span><span data-lang="zh">作为问题性皮肤专科治疗师的现场研究和临床观察</span><span data-lang="ja">問題肌専門セラピストとしての現場研究と臨床観察</span></div>
-      </div>
-      <div class="f-divider"></div>
-      <div class="f-stat">
-        <div class="f-num">4</div>
-        <div class="f-label"><span data-lang="ko" class="active">개국어 서비스</span><span data-lang="en">Languages Served</span><span data-lang="zh">种语言服务</span><span data-lang="ja">ヶ国語対応</span></div>
-        <div class="f-desc"><span data-lang="ko" class="active">한국어 · 영어 · 중국어 · 일본어. 동양의 지혜를 전 세계 고객에게</span><span data-lang="en">Korean · English · Chinese · Japanese. Eastern wisdom for clients from around the world</span><span data-lang="zh">韩语·英语·中文·日语。将东方智慧带给全球客户</span><span data-lang="ja">韓国語・英語・中国語・日本語。東洋の智慧を世界中のお客様へ</span></div>
-      </div>
-      <div class="f-divider"></div>
-      <div class="f-stat">
-        <div class="f-num">∞</div>
-        <div class="f-label"><span data-lang="ko" class="active">반복의 종식</span><span data-lang="en">End of Repetition</span><span data-lang="zh">终结反复</span><span data-lang="ja">繰り返しの終わり</span></div>
-        <div class="f-desc"><span data-lang="ko" class="active">치유인청담의 목표는 단 하나. 더 이상 같은 고민으로 돌아오지 않아도 되는 피부.</span><span data-lang="en">One singular goal: skin that no longer needs to return with the same concern.</span><span data-lang="zh">治愈人清潭只有一个目标：让您不再因同样的烦恼而回来的皮肤。</span><span data-lang="ja">チユインチョンダムの目標はただ一つ。同じ悩みでもう戻ってこなくていい肌。</span></div>
-      </div>
-    </div>
-  </div>
-
 </section>
 
 <!-- QUOTE -->
@@ -1087,64 +358,178 @@ html{scroll-behavior:smooth;}
     <div class="qtag"><span data-lang="ko" class="active">열 리포밍 시스템</span><span data-lang="en">Heat Reforming System</span><span data-lang="zh">热重塑系统</span><span data-lang="ja">熱リフォーミングシステム</span></div>
     <div class="qtag"><span data-lang="ko" class="active">상열하한 교정</span><span data-lang="en">Upper Heat Correction</span><span data-lang="zh">上热下寒矫正</span><span data-lang="ja">上熱下寒の改善</span></div>
     <div class="qtag"><span data-lang="ko" class="active">수열 · 통열 · 홍열</span><span data-lang="en">Suyeol · Tongyeol · Hongyeol</span><span data-lang="zh">水热 · 通热 · 红热</span><span data-lang="ja">水熱 · 通熱 · 紅熱</span></div>
-    <div class="qtag"><span data-lang="ko" class="active">반복 피부의 마지막 종착지</span><span data-lang="en">End Recurring Skin</span><span data-lang="zh">终结反复性肌肤问题</span><span data-lang="ja">繰り返す肌を終わらせる</span></div>
+    <div class="qtag"><span data-lang="ko" class="active">반복 피부의 마지막 종착지</span><span data-lang="en">End of Recurring Skin</span><span data-lang="zh">终结反复性肌肤问题</span><span data-lang="ja">繰り返す肌を終わらせる</span></div>
   </div>
 </div>
+
+<!-- EASTERN PHILOSOPHY -->
+<section id="eastern">
+  <div class="e-header sec" style="padding-bottom:48px;">
+    <div>
+      <span class="ey ey-lt"><span data-lang="ko" class="active">동양 철학 기반 케어</span><span data-lang="en">Eastern Philosophy · Understanding the Root</span><span data-lang="zh">东方哲学护理</span><span data-lang="ja">東洋哲学に基づくケア</span></span>
+      <h2 class="stitle stitle-lt"><span data-lang="ko" class="active">열(熱)이란 무엇인가</span><span data-lang="en">What is <em>Yeol</em>?<br>Understanding Eastern Heat</span><span data-lang="zh">什么是热(熱)?</span><span data-lang="ja">熱（ヨル）とは何か</span></h2>
+    </div>
+    <div>
+      <p class="sbody sbody-lt"><span data-lang="ko" class="active">동양 전통 의학에서 '열(熱)'은 단순한 체온이 아닙니다. 몸 안의 에너지 흐름이자, 생명력의 방향입니다. 이 열이 위로 과도하게 쏠릴 때 — 상열하한(上熱下寒) — 피부는 신호를 보냅니다. 트러블, 홍조, 염증이 바로 그 신호입니다.</span><span data-lang="en">In Eastern traditional medicine, "Yeol" (熱) is not simply body temperature. It is the direction of life energy flowing through the body. When this heat accumulates excessively upward — "Sang-yeol Ha-han" — the skin sends signals: breakouts, redness, and inflammation.</span><span data-lang="zh">在东方传统医学中，"热"不仅仅是体温。它是体内能量的流动方向。当这种热气过度向上聚集时——"上热下寒"——皮肤就会发出信号。痘痘、红潮和炎症，正是这些信号。</span><span data-lang="ja">東洋伝統医学において「熱」は、単なる体温ではありません。体内のエネルギーの流れです。この熱が過度に上に集まるとき——「上熱下寒」——皮膚はシグナルを送ります。ニキビ・赤み・炎症がまさにそのシグナルです。</span></p>
+    </div>
+  </div>
+  <div class="e-cards">
+    <div class="e-card">
+      <span class="e-hanja">水</span><span class="e-ko">수열 · Suyeol</span>
+      <h4 class="e-title"><span data-lang="ko" class="active">흐름의 시작</span><span data-lang="en">The Beginning of Flow</span><span data-lang="zh">流动的开始</span><span data-lang="ja">流れの始まり</span></h4>
+      <div class="e-line"></div>
+      <p class="e-body"><span data-lang="ko" class="active">수열은 물의 흐름을 상징합니다. 몸 안에서 수분과 에너지가 고여버릴 때, 피부는 가장 먼저 반응합니다. 막힌 모공, 반복되는 좁쌀, 속건조가 모두 흐르지 못하는 열의 신호입니다. 치유인청담의 첫 번째 단계는 이 흐름을 열어주는 것에서 시작합니다.</span><span data-lang="en">Suyeol symbolizes the flow of water. When moisture and energy stagnate within the body, the skin is the first to respond. Clogged pores, recurring milia, and inner dryness are all signals of heat that cannot flow. Our first stage begins with opening this flow.</span><span data-lang="zh">水热象征着水的流动。当身体内的水分和能量停滞时，皮肤最先做出反应。堵塞的毛孔、反复出现的闭口粉刺、内部干燥——这些都是热气无法流动的信号。</span><span data-lang="ja">水熱は水の流れを象徴します。体内の水分とエネルギーが滞ると、肌が最初に反応します。詰まった毛穴・繰り返す白ニキビ・内側の乾燥、すべてが流れない熱のシグナルです。</span></p>
+    </div>
+    <div class="e-card">
+      <span class="e-hanja">通</span><span class="e-ko">통열 · Tongyeol</span>
+      <h4 class="e-title"><span data-lang="ko" class="active">통로를 열다</span><span data-lang="en">Opening the Pathway</span><span data-lang="zh">开启通道</span><span data-lang="ja">通路を開く</span></h4>
+      <div class="e-line"></div>
+      <p class="e-body"><span data-lang="ko" class="active">통열은 막힌 길을 뚫는 것을 의미합니다. 동양 의학에서 '통(通)'은 기(氣)와 혈(血)이 자유롭게 순환하는 상태를 뜻합니다. 복부, 림프, 데콜테를 연결하여 상체 전체의 순환을 개통하면, 얼굴로 쏠린 과잉 에너지가 비로소 아래로 내려갑니다.</span><span data-lang="en">Tongyeol means clearing a blocked path. In Eastern medicine, "Tong" refers to the state where Ki and blood circulate freely. By connecting the abdomen, lymph system, and décolleté, excess energy pooled in the face can finally descend.</span><span data-lang="zh">通热意味着疏通堵塞的道路。在东方医学中，"通"指气和血液自由循环的状态。通过连接腹部、淋巴和锁骨，聚集在脸部的过剩能量才能最终向下流动。</span><span data-lang="ja">通熱とは、塞がった道を開くことです。東洋医学において「通」とは、気と血液が自由に循環する状態。腹部・リンパ・デコルテを連結して循環を開通させると、顔に集まっていた過剰エネルギーが下に降ります。</span></p>
+    </div>
+    <div class="e-card">
+      <span class="e-hanja">降</span><span class="e-ko">홍열 · Hongyeol</span>
+      <h4 class="e-title"><span data-lang="ko" class="active">열을 내리다</span><span data-lang="en">Bringing Heat Downward</span><span data-lang="zh">降热归根</span><span data-lang="ja">熱を下ろす</span></h4>
+      <div class="e-line"></div>
+      <p class="e-body"><span data-lang="ko" class="active">홍열은 붉음의 열입니다. 얼굴의 홍조, 지속되는 트러블, 스트레스로 인한 피부 반응은 모두 몸의 열이 위로 과도하게 쏠린 상태입니다. 심(心·마음)과 궁(宮·자궁/골반)의 두 가지 접근으로, 열이 쏠리는 근원을 차단하고 몸 전체의 균형을 회복합니다.</span><span data-lang="en">Hongyeol is the heat of redness. Facial flushing, persistent breakouts, stress-reactive skin — all are heat excessively accumulating upward. Through two approaches — Sim (mind) and Gung (pelvis) — we block the source and restore whole-body balance.</span><span data-lang="zh">红热是红色的热。面部红潮、持续性痘痘、因压力引起的皮肤反应——这些都是热气过度向上聚集的表现。通过"心"和"宫"两种方法，阻断热气聚集的根源，恢复全身平衡。</span><span data-lang="ja">紅熱は赤みの熱です。顔の紅潮・持続するニキビ・ストレス反応性の肌——すべて熱が上に集まっている表れです。心と宮の二つのアプローチで根源を遮断し、全身のバランスを回復します。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section id="conditions" class="sec">
+  <div class="cond-head">
+    <div>
+      <span class="ey"><span data-lang="ko" class="active">주요 케어 대상</span><span data-lang="en">Who We Help</span><span data-lang="zh">主要护理对象</span><span data-lang="ja">主なケア対象</span></span>
+      <h2 class="stitle"><span data-lang="ko" class="active">반복의 악순환을<br><em>끊어드립니다</em></span><span data-lang="en">Breaking the cycle<br><em>of repetition</em></span><span data-lang="zh">打破<br><em>反复的恶性循环</em></span><span data-lang="ja">繰り返しの<br><em>悪循環を断ち切る</em></span></h2>
+    </div>
+    <div>
+      <p class="sbody"><span data-lang="ko" class="active">치유인청담은 특히 세 가지 피부 상태를 깊이 연구해왔습니다. 오랜 시간 고객들과 함께하며 발견한 공통된 원인과, 그 원인에 맞는 접근 방식을 소개합니다.</span><span data-lang="en">Chiyou In Cheongdam has spent years in deep study of three particular skin conditions. Here we share the common root causes and our tailored approach to each.</span><span data-lang="zh">治愈人清潭深入研究了三种特定的皮肤状况。通过与客户长期观察发现的共同根本原因及解决方法。</span><span data-lang="ja">チユインチョンダムは特に三つの肌状態を長年深く研究してきました。共通の根本原因とそれぞれに合ったアプローチをご紹介します。</span></p>
+    </div>
+  </div>
+  <div class="cond-grid">
+    <div class="cond-card">
+      <div class="cond-vis">
+        <img src="Chiyou_0655.jpg" alt="Acne">
+        <div class="cond-vis-lbl"><span data-lang="ko" class="active">여드름 피부</span><span data-lang="en">Acne-Prone</span><span data-lang="zh">痘痘肌</span><span data-lang="ja">ニキビ肌</span></div>
+      </div>
+      <div class="cond-body">
+        <h4 class="cond-name"><span data-lang="ko" class="active">반복되는 여드름</span><span data-lang="en">Recurring Acne</span><span data-lang="zh">反复性痘痘</span><span data-lang="ja">繰り返すニキビ</span></h4>
+        <span class="cond-en">Acne · 여드름 · 痘痘 · ニキビ</span>
+        <p class="cond-desc"><span data-lang="ko" class="active">고쳤다고 생각했는데 다시 올라오는 여드름. 피부과 약을 먹어도, 압출을 해도 반복됩니다. 좁쌀 여드름, 화농성 여드름, 등·가슴 여드름까지 — 이 모든 것이 피부 표면의 문제가 아니라, 몸 안의 열 불균형 신호입니다.</span><span data-lang="en">Acne that returns just when you thought it was gone. Antibiotics, extractions, new skincare — nothing holds. All signals of heat imbalance deep within the body.</span><span data-lang="zh">以为好了，却又反复出现的痘痘。吃了皮肤科的药，做了清洁，依然反复。这一切都是体内热量失衡的信号。</span><span data-lang="ja">治ったと思ったのにまた出てくるニキビ。薬を飲んでも、圧出しても繰り返す。すべて体内の熱アンバランスのシグナルです。</span></p>
+        <div class="cond-root"><strong><span data-lang="ko" class="active">근본 원인</span><span data-lang="en">Root Cause</span><span data-lang="zh">根本原因</span><span data-lang="ja">根本的な原因</span></strong><p><span data-lang="ko" class="active">위로 쏠린 열이 모공을 막고 피지 분비를 과활성화. 장·소화 기능 저하가 피부로 표출.</span><span data-lang="en">Heat accumulating upward blocks pores and over-activates sebum. Compromised digestion manifesting through skin.</span><span data-lang="zh">向上聚集的热气堵塞毛孔并过度激活皮脂分泌。消化功能下降通过皮肤表现。</span><span data-lang="ja">上に集まる熱が毛穴を塞ぎ皮脂分泌を過活性化。消化機能の低下が肌に現れる。</span></p></div>
+      </div>
+    </div>
+    <div class="cond-card">
+      <div class="cond-vis">
+        <img src="Chiyou_0192.jpg" alt="Redness">
+        <div class="cond-vis-lbl"><span data-lang="ko" class="active">홍조 피부</span><span data-lang="en">Chronic Redness</span><span data-lang="zh">红潮肌</span><span data-lang="ja">慢性赤み肌</span></div>
+      </div>
+      <div class="cond-body">
+        <h4 class="cond-name"><span data-lang="ko" class="active">만성 홍조</span><span data-lang="en">Chronic Redness</span><span data-lang="zh">慢性红潮</span><span data-lang="ja">慢性的な赤み</span></h4>
+        <span class="cond-en">Redness · 홍조 · 红潮 · 赤み</span>
+        <p class="cond-desc"><span data-lang="ko" class="active">조금만 더워도, 조금만 자극받아도 빨개지는 얼굴. 만성 홍조는 혈관의 문제가 아니라 열의 방향 문제입니다. 레이저를 맞아도 금방 돌아오는 이유가 여기 있습니다.</span><span data-lang="en">A face that flushes at the slightest heat or stimulus. Chronic redness is not a vascular problem — it is a problem of heat direction. This is why laser treatments don't hold.</span><span data-lang="zh">稍微热一点就会变红的脸。慢性红潮不是血管问题，而是热的方向问题。这就是为什么激光治疗效果不持久的原因。</span><span data-lang="ja">少し暑くなるだけで赤くなる顔。慢性的な赤みは血管の問題ではなく、熱の方向の問題です。レーザー治療が持続しない理由がここにあります。</span></p>
+        <div class="cond-root"><strong><span data-lang="ko" class="active">근본 원인</span><span data-lang="en">Root Cause</span><span data-lang="zh">根本原因</span><span data-lang="ja">根本的な原因</span></strong><p><span data-lang="ko" class="active">상열하한(上熱下寒) — 열이 얼굴에 과잉 집중. 골반·자궁 냉증이 주요 원인.</span><span data-lang="en">Sang-yeol Ha-han — heat unable to descend, concentrating in the face. Pelvic coldness as a primary driver.</span><span data-lang="zh">上热下寒——热气过度集中在脸部。骨盆和子宫的寒凉是主要原因。</span><span data-lang="ja">上熱下寒——熱が下りられず顔に過剰集中。骨盤・子宮の冷えが主要な原因。</span></p></div>
+      </div>
+    </div>
+    <div class="cond-card">
+      <div class="cond-vis">
+        <img src="Chiyou_0606.jpg" alt="Sensitive">
+        <div class="cond-vis-lbl"><span data-lang="ko" class="active">예민 피부</span><span data-lang="en">Sensitive Skin</span><span data-lang="zh">敏感肌</span><span data-lang="ja">敏感肌</span></div>
+      </div>
+      <div class="cond-body">
+        <h4 class="cond-name"><span data-lang="ko" class="active">만성 예민 피부</span><span data-lang="en">Chronic Sensitivity</span><span data-lang="zh">慢性敏感肌</span><span data-lang="ja">慢性敏感肌</span></h4>
+        <span class="cond-en">Sensitivity · 예민 · 敏感 · 敏感</span>
+        <p class="cond-desc"><span data-lang="ko" class="active">뭘 발라도 따갑고, 새로운 화장품이 두렵습니다. 이 피부는 몸 전체의 면역과 자율신경이 예민해진 상태의 반영입니다. 피부만 보면 해결되지 않습니다.</span><span data-lang="en">Skin that stings with anything applied, fear of new products. This is a reflection of the body's immune and nervous system in a heightened state. Treating only the skin won't solve it.</span><span data-lang="zh">涂什么都刺痛，对新护肤品感到恐惧。这种皮肤实际上是全身免疫系统和自律神经变得敏感的反映。</span><span data-lang="ja">何を塗っても沁みて、新しいスキンケアが怖い。これは全身の免疫と自律神経系が過敏になった状態の反映です。</span></p>
+        <div class="cond-root"><strong><span data-lang="ko" class="active">근본 원인</span><span data-lang="en">Root Cause</span><span data-lang="zh">根本原因</span><span data-lang="ja">根本的な原因</span></strong><p><span data-lang="ko" class="active">교감신경 과활성화, 스트레스성 열 상승, 피부 장벽 기능 저하. 몸의 자기 회복력 소진 상태.</span><span data-lang="en">Sympathetic nervous system overactivation, stress-induced heat rise, compromised skin barrier. The body's self-recovery capacity depleted.</span><span data-lang="zh">交感神经过度激活，压力性热气上升，皮肤屏障功能下降。身体自我恢复能力耗尽。</span><span data-lang="ja">交感神経の過活性化、ストレス性の熱上昇、皮膚バリア機能の低下。身体の自己回復力が枯渇した状態。</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WELLNESS -->
+<section id="wellness">
+  <div class="wellness-txt">
+    <span class="w-ey"><span data-lang="ko" class="active">웰니스 × 메디컬의 조화</span><span data-lang="en">Where Wellness Meets Medical</span><span data-lang="zh">健康与医疗的和谐</span><span data-lang="ja">ウェルネスとメディカルの融合</span></span>
+    <h2 class="w-title"><span data-lang="ko" class="active">치료가 아닌<br><em>회복의 공간</em></span><span data-lang="en">Not treatment,<br><em>but restoration</em></span><span data-lang="zh">不是治疗，<br><em>而是恢复的空间</em></span><span data-lang="ja">治療ではなく、<br><em>回復の空間</em></span></h2>
+    <p class="w-body"><span data-lang="ko" class="active">치유인청담은 병원도, 일반 에스테틱도 아닙니다. 동양 의학의 철학적 깊이와 현대 해부학의 정밀함이 만나는 고급 웰니스 공간입니다. 약이 아닌 손으로, 기계가 아닌 인체에 대한 이해로 피부를 바꿉니다.</span><span data-lang="en">Chiyou In Cheongdam is neither a hospital nor a conventional esthetic. It is a luxury wellness space where the philosophical depth of Eastern medicine meets the precision of modern anatomy.</span><span data-lang="zh">治愈人清潭既不是医院，也不是普通美容院。它是东方医学的哲学深度与现代解剖学精准性相遇的高端健康空间。</span><span data-lang="ja">チユインチョンダムは病院でも一般的なエステでもありません。東洋医学の哲学的深みと現代解剖学の精密さが出会う高級ウェルネス空間です。</span></p>
+    <div class="w-pills">
+      <div class="w-pill"><div class="w-ico">熱</div><div><p class="w-lbl"><span data-lang="ko" class="active">열 리포밍 시스템</span><span data-lang="en">Heat Reforming System</span><span data-lang="zh">热重塑系统</span><span data-lang="ja">熱リフォーミングシステム</span></p><p class="w-desc"><span data-lang="ko" class="active">동양 열 이론 기반의 독자적 케어 시스템. 손의 기술.</span><span data-lang="en">A proprietary care system based on Eastern heat theory. The art of the hand.</span><span data-lang="zh">基于东方热理论的独特护理系统。手的技艺。</span><span data-lang="ja">東洋の熱理論に基づく独自のケアシステム。手の技術。</span></p></div></div>
+      <div class="w-pill"><div class="w-ico">解</div><div><p class="w-lbl"><span data-lang="ko" class="active">현대 해부학 기반</span><span data-lang="en">Modern Anatomy Foundation</span><span data-lang="zh">现代解剖学基础</span><span data-lang="ja">現代解剖学の基盤</span></p><p class="w-desc"><span data-lang="ko" class="active">근육·림프·지방층의 구조를 이해한 과학적 수기.</span><span data-lang="en">Scientific manual therapy informed by muscle, lymph, and fat layer structure.</span><span data-lang="zh">基于肌肉、淋巴和脂肪层结构的科学手技。</span><span data-lang="ja">筋肉・リンパ・脂肪層の構造を理解した科学的手技。</span></p></div></div>
+      <div class="w-pill"><div class="w-ico">癒</div><div><p class="w-lbl"><span data-lang="ko" class="active">하이엔드 스파 경험</span><span data-lang="en">High-End Spa Experience</span><span data-lang="zh">高端水疗体验</span><span data-lang="ja">ハイエンドスパ体験</span></p><p class="w-desc"><span data-lang="ko" class="active">공간, 향기, 손길, 침묵까지 — 모든 것이 설계되어 있습니다.</span><span data-lang="en">Space, scent, touch, silence — everything is intentionally designed.</span><span data-lang="zh">空间、香气、触感、静默——一切都经过精心设计。</span><span data-lang="ja">空間・香り・手の感触・静寂まで——すべてが設計されています。</span></p></div></div>
+    </div>
+  </div>
+  <div class="wellness-img">
+    <img src="Chiyou_0792.jpg" alt="Treatment">
+  </div>
+</section>
 
 <!-- PROGRAMS -->
 <section id="programs" class="sec">
   <div class="prog-head">
-    <div><span class="eyebrow"><span data-lang="ko" class="active">열 리포밍 시스템</span><span data-lang="en">Heat Reforming System</span><span data-lang="zh">热重塑系统</span><span data-lang="ja">熱リフォーミングシステム</span></span><h2 class="sec-title"><span data-lang="ko" class="active">3단계<br><em>프로그램</em></span><span data-lang="en">3-Stage<br><em>Programs</em></span><span data-lang="zh">三阶段<br><em>护理项目</em></span><span data-lang="ja">3段階<br><em>プログラム</em></span></h2></div>
-    <p class="body-txt"><span data-lang="ko" class="active">수열(水) · 통열(通) · 홍열(紅熱) — 흐르게 하고, 뚫어주고, 내려준다. 몸이 흐르면 피부는 따라옵니다.</span><span data-lang="en">Suyeol · Tongyeol · Hongyeol — Let it flow, open the path, bring it down. When the body flows, skin follows.</span><span data-lang="zh">水热·通热·红热——流动、疏通、下降。身体流动，肌肤跟随。</span><span data-lang="ja">水熱・通熱・紅熱 — 流れさせ、開き、下ろす。身体が流れると、肌はついてきます。</span></p>
+    <div>
+      <span class="ey"><span data-lang="ko" class="active">열 리포밍 시스템</span><span data-lang="en">Heat Reforming System</span><span data-lang="zh">热重塑系统</span><span data-lang="ja">熱リフォーミングシステム</span></span>
+      <h2 class="stitle"><span data-lang="ko" class="active">3단계<br><em>프로그램</em></span><span data-lang="en">3-Stage<br><em>Programs</em></span><span data-lang="zh">三阶段<br><em>护理项目</em></span><span data-lang="ja">3段階<br><em>プログラム</em></span></h2>
+    </div>
+    <p class="sbody"><span data-lang="ko" class="active">수열(水) · 통열(通) · 홍열(紅熱) — 흐르게 하고, 뚫어주고, 내려준다. 몸이 흐르면 피부는 따라옵니다.</span><span data-lang="en">Suyeol · Tongyeol · Hongyeol — Let it flow, open the path, bring it down. When the body flows, skin follows.</span><span data-lang="zh">水热·通热·红热——流动、疏通、下降。身体流动，肌肤跟随。</span><span data-lang="ja">水熱・通熱・紅熱 — 流れさせ、開き、下ろす。身体が流れると、肌はついてきます。</span></p>
   </div>
-  <div class="prog-grid reveal">
-    <div class="prog-card"><span class="badge">Stage 01</span><div class="prog-hanja">水</div><h3 class="prog-name"><span data-lang="ko" class="active">수열 리포밍</span><span data-lang="en">Suyeol</span><span data-lang="zh">水热重塑</span><span data-lang="ja">水熱リフォーミング</span></h3><p class="prog-en"><span data-lang="ko" class="active">흐르게 만드는 관리</span><span data-lang="en">Let It Flow</span><span data-lang="zh">让它流动</span><span data-lang="ja">流れさせる</span></p><p class="prog-desc"><span data-lang="ko" class="active">막힌 수분 통로를 열어 피부가 스스로 순환하게 만드는 기초 단계. 열이 한 곳에 고여 순환이 안 되는 상태를 먼저 해결합니다.</span><span data-lang="en">Opens blocked moisture pathways so skin can circulate on its own. Resolves stagnant heat pooling before anything else.</span><span data-lang="zh">打开阻塞的水分通道，让肌肤自主循环。首先解决热气停滞的状态。</span><span data-lang="ja">詰まった水分通路を開き肌が自ら循環できるようにする基礎段階。</span></p><p class="prog-for"><span data-lang="ko" class="active">✦ 좁쌀 반복 피부 &nbsp;✦ 붉은기·예민함 &nbsp;✦ 속건조 + 유분</span><span data-lang="en">✦ Recurring milia &nbsp;✦ Redness & sensitivity &nbsp;✦ Inner dry + oily</span><span data-lang="zh">✦ 反复闭口粉刺 &nbsp;✦ 红血丝·敏感 &nbsp;✦ 内干外油</span><span data-lang="ja">✦ 繰り返す白ニキビ &nbsp;✦ 赤み·敏感 &nbsp;✦ 内側乾燥+脂性</span></p><div class="prog-bottom"><div><div class="prog-price">₩200,000<small>회원가 ₩160,000</small></div></div><span class="prog-min">70 min</span></div></div>
-    <div class="prog-card"><span class="badge">Stage 02</span><div class="prog-hanja">通</div><h3 class="prog-name"><span data-lang="ko" class="active">통열 리포밍</span><span data-lang="en">Tongyeol</span><span data-lang="zh">通热重塑</span><span data-lang="ja">通熱リフォーミング</span></h3><p class="prog-en"><span data-lang="ko" class="active">막힌 흐름을 열어주는 관리</span><span data-lang="en">Open the Path</span><span data-lang="zh">疏通通道</span><span data-lang="ja">通路を開く</span></p><p class="prog-desc"><span data-lang="ko" class="active">복부·림프·데콜테를 연결해 상체 전체 순환을 개통합니다. 노폐물이 빠지고 영양이 흐르기 시작하면 안색이 달라집니다.</span><span data-lang="en">Connects abdomen, lymph, and décolleté to open full upper-body circulation. As waste clears and nutrients flow, your complexion transforms.</span><span data-lang="zh">将腹部、淋巴和锁骨连通，开通上半身整体循环。废物排出、营养流动，肤色随之改变。</span><span data-lang="ja">腹部・リンパ・デコルテを連結し上半身全体の循環を開通。老廃物が流れ栄養が届くと顔色が変わります。</span></p><p class="prog-for"><span data-lang="ko" class="active">✦ 부기·탁한 안색 &nbsp;✦ 소화불량 &nbsp;✦ 영양이 피부로 안 가는 느낌</span><span data-lang="en">✦ Puffiness & dull skin &nbsp;✦ Digestive issues &nbsp;✦ Nutrients not reaching skin</span><span data-lang="zh">✦ 浮肿·暗沉 &nbsp;✦ 消化不良 &nbsp;✦ 营养无法到达皮肤</span><span data-lang="ja">✦ むくみ·くすみ &nbsp;✦ 消化不良 &nbsp;✦ 栄養が肌に届かない</span></p><div class="prog-bottom"><div><div class="prog-price">₩350,000<small>회원가 ₩280,000</small></div></div><span class="prog-min">90 min</span></div></div>
-    <div class="prog-card"><span class="badge sig">Signature ★</span><div class="prog-hanja">心</div><h3 class="prog-name"><span data-lang="ko" class="active">홍열 — 심(心)</span><span data-lang="en">Hongyeol — Sim</span><span data-lang="zh">红热 — 心</span><span data-lang="ja">紅熱 — 心</span></h3><p class="prog-en"><span data-lang="ko" class="active">마음의 화를 내리다</span><span data-lang="en">Cool the Mind</span><span data-lang="zh">平息心火</span><span data-lang="ja">心の火を冷ます</span></p><p class="prog-desc"><span data-lang="ko" class="active">스트레스·감정 긴장이 등·목을 굳히고 열을 얼굴로 밀어 올립니다. 등과 목을 집중 릴리즈하여 열 상승 통로를 차단합니다.</span><span data-lang="en">Stress and emotional tension stiffen the back and neck, pushing heat to the face. Intensive back and neck release blocks the heat's upward path.</span><span data-lang="zh">压力和情绪紧张使背部和颈部僵硬，将热气推向脸部。集中放松背部和颈部，阻断热气上升通道。</span><span data-lang="ja">ストレスと感情の緊張が背中・首を固め熱を顔に押し上げます。集中リリースして熱の上昇を遮断します。</span></p><p class="prog-for"><span data-lang="ko" class="active">✦ 스트레스→트러블 &nbsp;✦ 불면·두피 열감 &nbsp;✦ 목·어깨 긴장</span><span data-lang="en">✦ Stress-triggered breakouts &nbsp;✦ Insomnia & scalp heat &nbsp;✦ Neck & shoulder tension</span><span data-lang="zh">✦ 压力→痘痘 &nbsp;✦ 失眠·头皮发热 &nbsp;✦ 颈肩紧张</span><span data-lang="ja">✦ ストレス→ニキビ &nbsp;✦ 不眠·頭皮の熱感 &nbsp;✦ 首·肩のこり</span></p><div class="prog-bottom"><div><div class="prog-price">₩400,000<small>회원가 ₩320,000</small></div></div><span class="prog-min">90 min</span></div></div>
-    <div class="prog-card"><span class="badge sig">Signature ★</span><div class="prog-hanja">宮</div><h3 class="prog-name"><span data-lang="ko" class="active">홍열 — 궁(宮)</span><span data-lang="en">Hongyeol — Gung</span><span data-lang="zh">红热 — 宫</span><span data-lang="ja">紅熱 — 宮</span></h3><p class="prog-en"><span data-lang="ko" class="active">뿌리의 온기를 되찾다</span><span data-lang="en">Warm the Root</span><span data-lang="zh">找回根部的温暖</span><span data-lang="ja">根の温もりを取り戻す</span></p><p class="prog-desc"><span data-lang="ko" class="active">아랫배가 차가우면 열이 위로 몰립니다. 골반과 복부를 따뜻하게 만들어 열의 방향을 아래로 되돌리는 시그니처 관리입니다.</span><span data-lang="en">A cold lower abdomen sends heat upward. This signature treatment warms the pelvis and abdomen to redirect heat back downward.</span><span data-lang="zh">下腹部寒凉会导致热气上冲。通过温暖骨盆和腹部，将热重新引导向下的标志性护理。</span><span data-lang="ja">下腹部が冷えると熱が上に集まります。骨盤と腹部を温めて熱の方向を下に戻すシグネチャートリートメント。</span></p><p class="prog-for"><span data-lang="ko" class="active">✦ 생리 전후 트러블 &nbsp;✦ 손발 차고 얼굴 붉음 &nbsp;✦ 호르몬 불균형</span><span data-lang="en">✦ Hormonal breakouts &nbsp;✦ Cold extremities & flushed face &nbsp;✦ Hormonal imbalance</span><span data-lang="zh">✦ 生理期前后痘痘 &nbsp;✦ 手脚冷·面红 &nbsp;✦ 激素不平衡</span><span data-lang="ja">✦ 生理前後のニキビ &nbsp;✦ 手足が冷えて顔が赤い &nbsp;✦ ホルモンバランスの乱れ</span></p><div class="prog-bottom"><div><div class="prog-price">₩400,000<small>회원가 ₩320,000</small></div></div><span class="prog-min">90 min</span></div></div>
+  <div class="prog-grid">
+    <div class="prog-card"><span class="pbadge">Stage 01</span><div class="p-hanja">水</div><h3 class="p-name"><span data-lang="ko" class="active">수열 리포밍</span><span data-lang="en">Suyeol</span><span data-lang="zh">水热重塑</span><span data-lang="ja">水熱リフォーミング</span></h3><p class="p-en"><span data-lang="ko" class="active">흐르게 만드는 관리</span><span data-lang="en">Let It Flow</span><span data-lang="zh">让它流动</span><span data-lang="ja">流れさせる</span></p><p class="p-desc"><span data-lang="ko" class="active">막힌 수분 통로를 열어 피부가 스스로 순환하게 만드는 기초 단계. 열이 고여 순환이 안 되는 상태를 먼저 해결합니다.</span><span data-lang="en">Opens blocked moisture pathways so skin can circulate on its own. Resolves stagnant heat pooling before anything else.</span><span data-lang="zh">打开阻塞的水分通道，让肌肤自主循环。首先解决热气停滞的状态。</span><span data-lang="ja">詰まった水分通路を開き肌が自ら循環できるようにする基礎段階。</span></p><p class="p-for"><span data-lang="ko" class="active">✦ 좁쌀 반복 피부 &nbsp;✦ 붉은기·예민함 &nbsp;✦ 속건조 + 유분</span><span data-lang="en">✦ Recurring milia &nbsp;✦ Redness &amp; sensitivity &nbsp;✦ Inner dry + oily</span><span data-lang="zh">✦ 反复闭口粉刺 &nbsp;✦ 红血丝·敏感 &nbsp;✦ 内干外油</span><span data-lang="ja">✦ 繰り返す白ニキビ &nbsp;✦ 赤み·敏感 &nbsp;✦ 内側乾燥+脂性</span></p><div class="p-bottom"><div><div class="p-price">₩200,000<small>회원가 ₩160,000</small></div></div><span class="p-min">70 min</span></div></div>
+    <div class="prog-card"><span class="pbadge">Stage 02</span><div class="p-hanja">通</div><h3 class="p-name"><span data-lang="ko" class="active">통열 리포밍</span><span data-lang="en">Tongyeol</span><span data-lang="zh">通热重塑</span><span data-lang="ja">通熱リフォーミング</span></h3><p class="p-en"><span data-lang="ko" class="active">막힌 흐름을 열어주는 관리</span><span data-lang="en">Open the Path</span><span data-lang="zh">疏通通道</span><span data-lang="ja">通路を開く</span></p><p class="p-desc"><span data-lang="ko" class="active">복부·림프·데콜테를 연결해 상체 전체 순환을 개통합니다. 노폐물이 빠지고 영양이 흐르기 시작하면 안색이 달라집니다.</span><span data-lang="en">Connects abdomen, lymph, and décolleté to open full upper-body circulation. As waste clears and nutrients flow, your complexion transforms.</span><span data-lang="zh">将腹部、淋巴和锁骨连通，开通上半身整体循环。废物排出、营养流动，肤色随之改变。</span><span data-lang="ja">腹部・リンパ・デコルテを連結し上半身全体の循環を開通。老廃物が流れ栄養が届くと顔色が変わります。</span></p><p class="p-for"><span data-lang="ko" class="active">✦ 부기·탁한 안색 &nbsp;✦ 소화불량 &nbsp;✦ 영양이 피부로 안 가는 느낌</span><span data-lang="en">✦ Puffiness &amp; dull skin &nbsp;✦ Digestive issues &nbsp;✦ Nutrients not reaching skin</span><span data-lang="zh">✦ 浮肿·暗沉 &nbsp;✦ 消化不良 &nbsp;✦ 营养无法到达皮肤</span><span data-lang="ja">✦ むくみ·くすみ &nbsp;✦ 消化不良 &nbsp;✦ 栄養が肌に届かない</span></p><div class="p-bottom"><div><div class="p-price">₩350,000<small>회원가 ₩280,000</small></div></div><span class="p-min">90 min</span></div></div>
+    <div class="prog-card"><span class="pbadge sig">Signature ★</span><div class="p-hanja">心</div><h3 class="p-name"><span data-lang="ko" class="active">홍열 — 심(心)</span><span data-lang="en">Hongyeol — Sim</span><span data-lang="zh">红热 — 心</span><span data-lang="ja">紅熱 — 心</span></h3><p class="p-en"><span data-lang="ko" class="active">마음의 화를 내리다</span><span data-lang="en">Cool the Mind</span><span data-lang="zh">平息心火</span><span data-lang="ja">心の火を冷ます</span></p><p class="p-desc"><span data-lang="ko" class="active">스트레스·감정 긴장이 등·목을 굳히고 열을 얼굴로 밀어 올립니다. 등과 목을 집중 릴리즈하여 열 상승 통로를 차단합니다.</span><span data-lang="en">Stress and emotional tension stiffen the back and neck, pushing heat to the face. Intensive back and neck release blocks the heat's upward path.</span><span data-lang="zh">压力和情绪紧张使背部和颈部僵硬，将热气推向脸部。集中放松背部和颈部，阻断热气上升通道。</span><span data-lang="ja">ストレスと感情の緊張が背中・首を固め熱を顔に押し上げます。集中リリースして熱の上昇を遮断します。</span></p><p class="p-for"><span data-lang="ko" class="active">✦ 스트레스→트러블 &nbsp;✦ 불면·두피 열감 &nbsp;✦ 목·어깨 긴장</span><span data-lang="en">✦ Stress-triggered breakouts &nbsp;✦ Insomnia &amp; scalp heat &nbsp;✦ Neck &amp; shoulder tension</span><span data-lang="zh">✦ 压力→痘痘 &nbsp;✦ 失眠·头皮发热 &nbsp;✦ 颈肩紧张</span><span data-lang="ja">✦ ストレス→ニキビ &nbsp;✦ 不眠·頭皮の熱感 &nbsp;✦ 首·肩のこり</span></p><div class="p-bottom"><div><div class="p-price">₩400,000<small>회원가 ₩320,000</small></div></div><span class="p-min">90 min</span></div></div>
+    <div class="prog-card"><span class="pbadge sig">Signature ★</span><div class="p-hanja">宮</div><h3 class="p-name"><span data-lang="ko" class="active">홍열 — 궁(宮)</span><span data-lang="en">Hongyeol — Gung</span><span data-lang="zh">红热 — 宫</span><span data-lang="ja">紅熱 — 宮</span></h3><p class="p-en"><span data-lang="ko" class="active">뿌리의 온기를 되찾다</span><span data-lang="en">Warm the Root</span><span data-lang="zh">找回根部的温暖</span><span data-lang="ja">根の温もりを取り戻す</span></p><p class="p-desc"><span data-lang="ko" class="active">아랫배가 차가우면 열이 위로 몰립니다. 골반과 복부를 따뜻하게 만들어 열의 방향을 아래로 되돌리는 시그니처 관리입니다.</span><span data-lang="en">A cold lower abdomen sends heat upward. This signature treatment warms the pelvis and abdomen to redirect heat back downward.</span><span data-lang="zh">下腹部寒凉会导致热气上冲。通过温暖骨盆和腹部，将热重新引导向下的标志性护理。</span><span data-lang="ja">下腹部が冷えると熱が上に集まります。骨盤と腹部を温めて熱の方向を下に戻すシグネチャートリートメント。</span></p><p class="p-for"><span data-lang="ko" class="active">✦ 생리 전후 트러블 &nbsp;✦ 손발 차고 얼굴 붉음 &nbsp;✦ 호르몬 불균형</span><span data-lang="en">✦ Hormonal breakouts &nbsp;✦ Cold extremities &amp; flushed face &nbsp;✦ Hormonal imbalance</span><span data-lang="zh">✦ 生理期前后痘痘 &nbsp;✦ 手脚冷·面红 &nbsp;✦ 激素不平衡</span><span data-lang="ja">✦ 生理前後のニキビ &nbsp;✦ 手足が冷えて顔が赤い &nbsp;✦ ホルモンバランスの乱れ</span></p><div class="p-bottom"><div><div class="p-price">₩400,000<small>회원가 ₩320,000</small></div></div><span class="p-min">90 min</span></div></div>
   </div>
 </section>
 
-<!-- SPACE -->
+<!-- SPACE GALLERY -->
 <section id="space">
-  <div class="space-header reveal">
-    <span class="eyebrow"><span data-lang="ko" class="active">공간 안내</span><span data-lang="en">The Space</span><span data-lang="zh">空间介绍</span><span data-lang="ja">空間のご案内</span></span>
-    <h2 class="sec-title" style="color:#fff"><span data-lang="ko" class="active">고요하고<br><em style="color:var(--blue-lt)">정밀한 공간</em></span><span data-lang="en">Quiet and<br><em style="color:var(--blue-lt)">precise</em></span><span data-lang="zh">静谧而<br><em style="color:var(--blue-lt)">精致的空间</em></span><span data-lang="ja">静かで<br><em style="color:var(--blue-lt)">精密な空間</em></span></h2>
+  <div class="space-hdr sec" style="padding-bottom:36px;">
+    <span class="ey ey-lt"><span data-lang="ko" class="active">공간 안내</span><span data-lang="en">The Space</span><span data-lang="zh">空间介绍</span><span data-lang="ja">空間のご案内</span></span>
+    <h2 class="stitle stitle-lt"><span data-lang="ko" class="active">고요하고<br><em>정밀한 공간</em></span><span data-lang="en">Quiet and<br><em>precise</em></span><span data-lang="zh">静谧而<br><em>精致的空间</em></span><span data-lang="ja">静かで<br><em>精密な空間</em></span></h2>
+    <p style="font-size:.72rem;color:rgba(255,255,255,.35);margin-top:12px;letter-spacing:.08em;">
+      <span data-lang="ko" class="active">사진을 클릭하면 크게 볼 수 있습니다</span>
+      <span data-lang="en">Click any photo to view full size</span>
+      <span data-lang="zh">点击图片可放大查看</span>
+      <span data-lang="ja">写真をクリックすると拡大表示されます</span>
+    </p>
   </div>
-  <div class="space-grid">
-    <div class="sp-cell tall" style="overflow:hidden;">
-      <img src="Chiyou_0792.jpg" alt="Treatment" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
-      <div class="sp-label"><span data-lang="ko" class="active">트리트먼트룸</span><span data-lang="en">Treatment Room</span><span data-lang="zh">护理室</span><span data-lang="ja">トリートメントルーム</span></div>
-    </div>
-    <div class="sp-cell" style="overflow:hidden;">
-      <img src="Chiyou_0655.jpg" alt="Head massage" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
-      <div class="sp-label"><span data-lang="ko" class="active">공간 디테일</span><span data-lang="en">Space Detail</span><span data-lang="zh">空间细节</span><span data-lang="ja">空間ディテール</span></div>
-    </div>
-    <div class="sp-cell" style="overflow:hidden;">
-      <img src="Chiyou_0606.jpg" alt="Back treatment" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
-      <div class="sp-label"><span data-lang="ko" class="active">가운·타월</span><span data-lang="en">Gown & Towel</span><span data-lang="zh">浴袍·毛巾</span><span data-lang="ja">ガウン·タオル</span></div>
-    </div>
-    <div class="sp-cell" style="overflow:hidden;">
-      <img src="Chiyou_0975.jpg" alt="Slippers" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
-      <div class="sp-label"><span data-lang="ko" class="active">슬리퍼</span><span data-lang="en">Slippers</span><span data-lang="zh">拖鞋</span><span data-lang="ja">スリッパ</span></div>
-    </div>
-    <div class="sp-cell" style="overflow:hidden;">
-      <img src="Chiyou_0940.jpg" alt="Signage" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
-      <div class="sp-label"><span data-lang="ko" class="active">불화강강降</span><span data-lang="en">Heat Descends</span><span data-lang="zh">火降</span><span data-lang="ja">火降</span></div>
-    </div>
+  <div class="gallery">
+    <div class="g-cell tall" onclick="openLB(0)"><img src="Chiyou_1016.jpg" alt="Treatment Bed"><div class="g-lbl"><span data-lang="ko" class="active">트리트먼트 베드</span><span data-lang="en">Treatment Bed</span><span data-lang="zh">护理床</span><span data-lang="ja">トリートメントベッド</span></div><div class="g-plus">+</div></div>
+    <div class="g-cell" onclick="openLB(1)"><img src="Chiyou_0992.jpg" alt="Room Detail"><div class="g-lbl"><span data-lang="ko" class="active">룸 디테일</span><span data-lang="en">Room Detail</span><span data-lang="zh">房间细节</span><span data-lang="ja">ルームディテール</span></div><div class="g-plus">+</div></div>
+    <div class="g-cell" onclick="openLB(2)"><img src="Chiyou_1000.jpg" alt="Gown"><div class="g-lbl"><span data-lang="ko" class="active">가운</span><span data-lang="en">Gown</span><span data-lang="zh">浴袍</span><span data-lang="ja">ガウン</span></div><div class="g-plus">+</div></div>
+    <div class="g-cell" onclick="openLB(3)"><img src="Chiyou_0940.jpg" alt="Signage"><div class="g-lbl"><span data-lang="ko" class="active">불화강강 火降</span><span data-lang="en">Heat Descends</span><span data-lang="zh">火降</span><span data-lang="ja">火降</span></div><div class="g-plus">+</div></div>
+    <div class="g-cell" onclick="openLB(4)"><img src="Chiyou_0975.jpg" alt="Slippers"><div class="g-lbl"><span data-lang="ko" class="active">슬리퍼</span><span data-lang="en">Slippers</span><span data-lang="zh">拖鞋</span><span data-lang="ja">スリッパ</span></div><div class="g-plus">+</div></div>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button class="lb-close" onclick="closeLB()">×</button>
+  <button class="lb-prev" onclick="prevLB()">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-next" onclick="nextLB()">›</button>
+  <div class="lb-count" id="lb-count"></div>
+</div>
+
+<!-- FOUNDER -->
+<div class="founder">
+  <div>
+    <p class="f-q"><span data-lang="ko" class="active">"당신의 피부가 반복되는 이유는, 아직 원인을 찾지 못했기 때문입니다. 저희는 그 원인을 함께 찾아드리기 위해 이 공간을 만들었습니다."</span><span data-lang="en">"The reason your skin keeps repeating is that the root cause hasn't been found yet. We created this space to find that cause — together with you."</span><span data-lang="zh">"您的皮肤之所以反复，是因为还没有找到根本原因。我们创建了这个空间，就是为了与您一起找到那个原因。"</span><span data-lang="ja">"あなたの肌が繰り返す理由は、まだ原因が見つかっていないからです。私たちはその原因を一緒に探すために、この空間を作りました。"</span></p>
+    <p class="f-attr">— Lead Therapist · Chiyou In Cheongdam</p>
+  </div>
+  <div class="f-div"></div>
+  <div class="f-stats">
+    <div class="f-stat"><div class="f-num">15+</div><div class="f-lbl"><span data-lang="ko" class="active">년간 임상 경험</span><span data-lang="en">Years of Clinical Practice</span><span data-lang="zh">年临床经验</span><span data-lang="ja">年間の臨床経験</span></div><div class="f-desc"><span data-lang="ko" class="active">문제성 피부 전문 테라피스트로서의 현장 연구와 임상 관찰</span><span data-lang="en">Field research and clinical observation as a specialist therapist for problematic skin</span><span data-lang="zh">作为问题性皮肤专科治疗师的现场研究和临床观察</span><span data-lang="ja">問題肌専門セラピストとしての現場研究と臨床観察</span></div></div>
+    <div class="f-stat"><div class="f-num">4</div><div class="f-lbl"><span data-lang="ko" class="active">개국어 서비스</span><span data-lang="en">Languages Served</span><span data-lang="zh">种语言服务</span><span data-lang="ja">ヶ国語対応</span></div><div class="f-desc"><span data-lang="ko" class="active">한국어 · 영어 · 중국어 · 일본어. 동양의 지혜를 전 세계 고객에게</span><span data-lang="en">Korean · English · Chinese · Japanese. Eastern wisdom for clients worldwide</span><span data-lang="zh">韩语·英语·中文·日语。将东方智慧带给全球客户</span><span data-lang="ja">韓国語・英語・中国語・日本語。東洋の智慧を世界中のお客様へ</span></div></div>
+  </div>
+</div>
 
 <!-- BOOKING -->
 <section id="booking" class="sec">
   <div class="book-grid">
-    <div class="reveal">
-      <span class="eyebrow"><span data-lang="ko" class="active">예약 안내</span><span data-lang="en">Book a Session</span><span data-lang="zh">预约指南</span><span data-lang="ja">ご予約案内</span></span>
-      <h2 class="sec-title"><span data-lang="ko" class="active">첫 방문을<br><em>시작하세요</em></span><span data-lang="en">Begin your<br><em>first visit</em></span><span data-lang="zh">开始您的<br><em>第一次造访</em></span><span data-lang="ja">最初の訪問を<br><em>始めましょう</em></span></h2>
-      <div style="margin-bottom:28px;overflow:hidden;border-radius:2px;">
-        <img src="Chiyou_1016.jpg" alt="Treatment" style="width:100%;height:220px;object-fit:cover;object-position:center 30%;filter:brightness(.85);">
-      </div>
-      <p class="body-txt" style="color:rgba(255,255,255,.8);"><span data-lang="ko" class="active">첫 방문 시 15–20분 무료 피부 구조 상담을 제공합니다.</span><span data-lang="en">All first-time visitors receive a complimentary 15–20 min skin structure consultation.</span><span data-lang="zh">首次来访者可享受15-20分钟的免费肌肤结构咨询。</span><span data-lang="ja">初回ご来店の方には15〜20分の無料肌構造カウンセリングを提供しています。</span></p>
+    <div>
+      <span class="book-ey"><span data-lang="ko" class="active">예약 안내</span><span data-lang="en">Book a Session</span><span data-lang="zh">预约指南</span><span data-lang="ja">ご予約案内</span></span>
+      <h2 class="book-title"><span data-lang="ko" class="active">첫 방문을<br><em>시작하세요</em></span><span data-lang="en">Begin your<br><em>first visit</em></span><span data-lang="zh">开始您的<br><em>第一次造访</em></span><span data-lang="ja">最初の訪問を<br><em>始めましょう</em></span></h2>
+      <p class="book-body"><span data-lang="ko" class="active">첫 방문 시 15–20분 무료 피부 구조 상담을 제공합니다. 한국인 고객은 네이버 예약으로, 외국인 고객은 온라인 예약 시스템을 이용해 주세요.</span><span data-lang="en">All first-time visitors receive a complimentary 15–20 min skin structure consultation. Korean guests may use Naver; international guests can book online or via DM.</span><span data-lang="zh">首次来访者可享受15-20分钟的免费肌肤结构咨询。韩国顾客可使用Naver，外国顾客可在线预约或通过DM联系。</span><span data-lang="ja">初回ご来店の方には15〜20分の無料肌構造カウンセリングを提供。韓国のお客様はNaver、外国のお客様はオンライン予約またはDMでお問い合わせください。</span></p>
       <div class="book-opts">
         <a href="https://booking.naver.com/booking/13/bizes/761409" target="_blank" class="bopt"><div class="bopt-l"><span class="bopt-ico">🇰🇷</span><div><div class="bopt-lbl"><span data-lang="ko" class="active">네이버 예약</span><span data-lang="en">Naver Booking</span><span data-lang="zh">Naver预约</span><span data-lang="ja">Naver予約</span></div><div class="bopt-sub"><span data-lang="ko" class="active">한국인 고객 추천</span><span data-lang="en">For Korean guests</span><span data-lang="zh">推荐韩国顾客</span><span data-lang="ja">韓国のお客様向け</span></div></div></div><span class="bopt-arr">→</span></a>
         <a href="#" class="bopt"><div class="bopt-l"><span class="bopt-ico">🌍</span><div><div class="bopt-lbl"><span data-lang="ko" class="active">온라인 예약 (외국인)</span><span data-lang="en">Online Booking (International)</span><span data-lang="zh">在线预约（外国顾客）</span><span data-lang="ja">オンライン予約</span></div><div class="bopt-sub"><span data-lang="ko" class="active">영어 · 중국어 · 일본어 응대</span><span data-lang="en">EN · ZH · JA available</span><span data-lang="zh">英语 · 中文 · 日语</span><span data-lang="ja">英語 · 中国語 · 日本語</span></div></div></div><span class="bopt-arr">→</span></a>
@@ -1152,11 +537,10 @@ html{scroll-behavior:smooth;}
         <a href="tel:+821021171341" class="bopt"><div class="bopt-l"><span class="bopt-ico">📞</span><div><div class="bopt-lbl">+82 10-2117-1341</div><div class="bopt-sub">KakaoTalk: pilabeautylab</div></div></div><span class="bopt-arr">→</span></a>
       </div>
     </div>
-    <div class="book-info reveal-2">
+    <div class="book-info">
       <div class="binfo"><div class="bdot"></div><div class="binfo-body"><strong><span data-lang="ko" class="active">위치</span><span data-lang="en">Location</span><span data-lang="zh">地址</span><span data-lang="ja">アクセス</span></strong><span data-lang="ko" class="active">강남구청역 2번 출구, 강남파라곤 상가동 3층<br>서울특별시 강남구 청담동</span><span data-lang="en">3F Gangnam Paragon, Exit 2 · Gangnam-gucheong Station<br>Cheongdam-dong, Gangnam-gu, Seoul</span><span data-lang="zh">首尔江南区厅站2号出口，江南巴拉贡商业楼3层</span><span data-lang="ja">江南区庁駅2番出口、江南パラゴン商業棟3F</span></div></div>
-      <div class="binfo"><div class="bdot"></div><div class="binfo-body"><strong><span data-lang="ko" class="active">운영 시간</span><span data-lang="en">Hours</span><span data-lang="zh">营业时间</span><span data-lang="ja">営業時間</span></strong><span data-lang="ko" class="active">월–토 10:00 – 20:00 &nbsp;|&nbsp; 일요일·공휴일 휴무</span><span data-lang="en">Mon–Sat 10:00 – 20:00 &nbsp;|&nbsp; Closed Sun & Holidays</span><span data-lang="zh">周一至周六 10:00 – 20:00 &nbsp;|&nbsp; 周日及假日休息</span><span data-lang="ja">月〜土 10:00 – 20:00 &nbsp;|&nbsp; 日曜・祝日定休</span></div></div>
-      <div class="binfo"><div class="bdot"></div><div class="binfo-body"><strong><span data-lang="ko" class="active">첫 방문 안내</span><span data-lang="en">First Visit</span><span data-lang="zh">初次来访</span><span data-lang="ja">初回ご来店</span></strong><span data-lang="ko" class="active">식사 후 1시간 이상, 편한 옷차림으로 방문해주세요. 첫 방문 무료 상담 포함.</span><span data-lang="en">Please visit 1+ hour after a meal, in comfortable clothing. Free consultation included.</span><span data-lang="zh">请在餐后至少1小时后来访，穿着舒适服装。含免费咨询。</span><span data-lang="ja">食後1時間以上、楽な服装でお越しください。無料カウンセリング付き。</span></div></div>
-      <div class="map-box"><span><span data-lang="ko" class="active">강남파라곤 3F · 지도 준비중</span><span data-lang="en">Gangnam Paragon 3F · Map coming soon</span><span data-lang="zh">江南巴拉贡3F · 地图即将上线</span><span data-lang="ja">江南パラゴン3F · マップ準備中</span></span></div>
+      <div class="binfo"><div class="bdot"></div><div class="binfo-body"><strong><span data-lang="ko" class="active">운영 시간</span><span data-lang="en">Hours</span><span data-lang="zh">营业时间</span><span data-lang="ja">営業時間</span></strong><span data-lang="ko" class="active">월–토 10:00 – 20:00 &nbsp;|&nbsp; 일요일·공휴일 휴무</span><span data-lang="en">Mon–Sat 10:00 – 20:00 &nbsp;|&nbsp; Closed Sun &amp; Holidays</span><span data-lang="zh">周一至周六 10:00 – 20:00 &nbsp;|&nbsp; 周日及假日休息</span><span data-lang="ja">月〜土 10:00 – 20:00 &nbsp;|&nbsp; 日曜・祝日定休</span></div></div>
+      <div class="binfo"><div class="bdot"></div><div class="binfo-body"><strong><span data-lang="ko" class="active">첫 방문 안내</span><span data-lang="en">First Visit</span><span data-lang="zh">初次来访</span><span data-lang="ja">初回ご来店</span></strong><span data-lang="ko" class="active">식사 후 1시간 이상, 편한 옷차림으로 방문해 주세요. 첫 방문 무료 상담 포함.</span><span data-lang="en">Please visit 1+ hour after a meal, in comfortable clothing. Free consultation included.</span><span data-lang="zh">请在餐后至少1小时后来访，穿着舒适服装。含免费咨询。</span><span data-lang="ja">食後1時間以上、楽な服装でお越しください。無料カウンセリング付き。</span></div></div>
     </div>
   </div>
 </section>
@@ -1164,14 +548,42 @@ html{scroll-behavior:smooth;}
 <!-- FOOTER -->
 <footer>
   <div class="foot-top">
-    <div><span class="foot-logo">CHIYOU IN CHEONGDAM</span><p class="foot-tag"><span data-lang="ko" class="active">"피부는 결과입니다. 우리는 원인을 봅니다."</span><span data-lang="en">"Skin is the result. We treat the cause."</span><span data-lang="zh">"皮肤是结果。我们治疗根本原因。"</span><span data-lang="ja">"肌は結果です。私たちは原因を見ます。"</span></p><div class="foot-contact">강남구 청담동 · 강남파라곤 3층<br>+82 10-2117-1341<br>KakaoTalk: pilabeautylab</div></div>
-    <div class="foot-col"><h5><span data-lang="ko" class="active">메뉴</span><span data-lang="en">Menu</span><span data-lang="zh">菜单</span><span data-lang="ja">メニュー</span></h5><ul><li><a href="#story"><span data-lang="ko" class="active">브랜드 스토리</span><span data-lang="en">Our Story</span><span data-lang="zh">品牌故事</span><span data-lang="ja">ストーリー</span></a></li><li><a href="#programs"><span data-lang="ko" class="active">프로그램</span><span data-lang="en">Programs</span><span data-lang="zh">护理项目</span><span data-lang="ja">プログラム</span></a></li><li><a href="#space"><span data-lang="ko" class="active">공간</span><span data-lang="en">The Space</span><span data-lang="zh">空间</span><span data-lang="ja">空間</span></a></li><li><a href="#booking"><span data-lang="ko" class="active">예약</span><span data-lang="en">Book</span><span data-lang="zh">预约</span><span data-lang="ja">予約</span></a></li></ul></div>
-    <div class="foot-col"><h5>Follow</h5><ul><li><a href="https://www.instagram.com/chiyou_in_chengdam" target="_blank">@chiyou_in_chengdam</a></li><li><a href="https://www.instagram.com/therapist_chiy0u" target="_blank">@therapist_chiy0u</a></li><li><a href="https://booking.naver.com/booking/13/bizes/761409" target="_blank">Naver 예약</a></li></ul></div>
+    <div>
+      <span class="foot-logo">CHIYOU IN CHEONGDAM</span>
+      <p class="foot-tag"><span data-lang="ko" class="active">"피부는 결과입니다. 우리는 원인을 봅니다."</span><span data-lang="en">"Skin is the result. We treat the cause."</span><span data-lang="zh">"皮肤是结果。我们治疗根本原因。"</span><span data-lang="ja">"肌は結果です。私たちは原因を見ます。"</span></p>
+      <div class="foot-contact">강남구 청담동 · 강남파라곤 3층<br>+82 10-2117-1341<br>KakaoTalk: pilabeautylab</div>
+    </div>
+    <div class="foot-col">
+      <h5><span data-lang="ko" class="active">메뉴</span><span data-lang="en">Menu</span><span data-lang="zh">菜单</span><span data-lang="ja">メニュー</span></h5>
+      <ul>
+        <li><a href="#story"><span data-lang="ko" class="active">브랜드 스토리</span><span data-lang="en">Our Story</span><span data-lang="zh">品牌故事</span><span data-lang="ja">ストーリー</span></a></li>
+        <li><a href="#eastern"><span data-lang="ko" class="active">동양 철학</span><span data-lang="en">Philosophy</span><span data-lang="zh">东方哲学</span><span data-lang="ja">東洋哲学</span></a></li>
+        <li><a href="#programs"><span data-lang="ko" class="active">프로그램</span><span data-lang="en">Programs</span><span data-lang="zh">护理项目</span><span data-lang="ja">プログラム</span></a></li>
+        <li><a href="#space"><span data-lang="ko" class="active">공간</span><span data-lang="en">The Space</span><span data-lang="zh">空间</span><span data-lang="ja">空間</span></a></li>
+        <li><a href="#booking"><span data-lang="ko" class="active">예약</span><span data-lang="en">Book</span><span data-lang="zh">预约</span><span data-lang="ja">予約</span></a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Follow</h5>
+      <ul>
+        <li><a href="https://www.instagram.com/chiyou_in_chengdam" target="_blank">@chiyou_in_chengdam</a></li>
+        <li><a href="https://www.instagram.com/therapist_chiy0u" target="_blank">@therapist_chiy0u</a></li>
+        <li><a href="https://booking.naver.com/booking/13/bizes/761409" target="_blank">Naver 예약</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="foot-bottom"><span class="foot-copy">© 2025 Chiyou In Cheongdam. All rights reserved.</span><div class="foot-sns"><a href="https://www.instagram.com/chiyou_in_chengdam" target="_blank">Instagram</a><a href="#">Kakao</a><a href="https://booking.naver.com/booking/13/bizes/761409" target="_blank">Naver</a></div></div>
+  <div class="foot-bottom">
+    <span class="foot-copy">© 2025 Chiyou In Cheongdam. All rights reserved.</span>
+    <div class="foot-sns">
+      <a href="https://www.instagram.com/chiyou_in_chengdam" target="_blank">Instagram</a>
+      <a href="#">Kakao</a>
+      <a href="https://booking.naver.com/booking/13/bizes/761409" target="_blank">Naver</a>
+    </div>
+  </div>
 </footer>
 
 <script>
+// LANG
 const lbtns=document.querySelectorAll('.lbtn');
 const langEls=document.querySelectorAll('[data-lang]');
 function setLang(l){
@@ -1183,11 +595,29 @@ function setLang(l){
 lbtns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.ls)));
 const saved=localStorage.getItem('cic-lang');
 if(saved)setLang(saved);
-const navEl=document.getElementById('nav');
-window.addEventListener('scroll',()=>navEl.classList.toggle('solid',window.scrollY>40),{passive:true});
-const revEls=document.querySelectorAll('.reveal,.reveal-2,.reveal-l,.reveal-r,.stagger-1,.stagger-2,.stagger-3');
-const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');}),{threshold:0.08});
-revEls.forEach(e=>ro.observe(e));
+
+// NAV scroll
+const navEl=document.querySelector('nav');
+window.addEventListener('scroll',()=>navEl.style.boxShadow=window.scrollY>40?'0 2px 20px rgba(0,0,0,.08)':'none',{passive:true});
+
+// LIGHTBOX
+const lbImgs=[
+  'Chiyou_1016.jpg','Chiyou_0992.jpg','Chiyou_1000.jpg',
+  'Chiyou_0940.jpg','Chiyou_0975.jpg',
+  'Chiyou_1006.jpg','Chiyou_1018.jpg','Chiyou_1027.jpg',
+  'Chiyou_1057.jpg','Chiyou_1091.jpg','Chiyou_1099.jpg',
+  'Chiyou_0886.jpg','Chiyou_0967.jpg'
+];
+let lbIdx=0;
+const lb=document.getElementById('lb');
+const lbImg=document.getElementById('lb-img');
+const lbCount=document.getElementById('lb-count');
+function openLB(i){lbIdx=i;lbImg.src=lbImgs[i];lbCount.textContent=(i+1)+' / '+lbImgs.length;lb.classList.add('open');document.body.style.overflow='hidden';}
+function closeLB(){lb.classList.remove('open');document.body.style.overflow='';}
+function prevLB(){lbIdx=(lbIdx-1+lbImgs.length)%lbImgs.length;lbImg.src=lbImgs[lbIdx];lbCount.textContent=(lbIdx+1)+' / '+lbImgs.length;}
+function nextLB(){lbIdx=(lbIdx+1)%lbImgs.length;lbImg.src=lbImgs[lbIdx];lbCount.textContent=(lbIdx+1)+' / '+lbImgs.length;}
+lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')prevLB();if(e.key==='ArrowRight')nextLB();});
 </script>
 </body>
 </html>
