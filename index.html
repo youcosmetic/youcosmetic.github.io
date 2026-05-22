@@ -25,11 +25,11 @@ nav.solid{background:rgba(249,246,242,0.97);backdrop-filter:blur(16px);box-shado
 .nav-logo{font-family:'Libre Baskerville',serif;font-size:.82rem;letter-spacing:.32em;text-transform:uppercase;color:var(--blue-dk);text-decoration:none;}
 .nav-logo span{color:var(--blue-lt);}
 .nav-center{display:flex;gap:36px;list-style:none;}
-.nav-center a{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .2s;}
+.nav-center a{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#5a5248;text-decoration:none;transition:color .2s;}
 .nav-center a:hover{color:var(--blue-dk);}
 .nav-right{display:flex;align-items:center;gap:12px;}
 .lang-sw{display:flex;gap:2px;}
-.lbtn{background:none;border:none;cursor:pointer;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);padding:5px 8px;border-radius:2px;font-family:inherit;transition:all .18s;}
+.lbtn{background:none;border:none;cursor:pointer;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#5a5248;padding:5px 8px;border-radius:2px;font-family:inherit;transition:all .18s;}
 .lbtn.on{background:var(--blue);color:#fff;}
 .lbtn:not(.on):hover{color:var(--blue);}
 .nav-book{border:1px solid var(--blue);background:none;color:var(--blue);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:8px 18px;cursor:pointer;font-family:inherit;transition:all .22s;}
@@ -71,11 +71,11 @@ nav.solid{background:rgba(249,246,242,0.97);backdrop-filter:blur(16px);box-shado
 .mani [data-lang].active{display:block;}
 
 /* SECTIONS */
-.sec{padding:110px 80px;}
+.sec{padding:80px 80px;}
 .eyebrow{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:18px;}
 .sec-title{font-family:'Libre Baskerville',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;line-height:1.2;color:var(--ink);}
 .sec-title em{font-style:italic;color:var(--blue);}
-.body-txt{font-size:.84rem;line-height:2;color:var(--stone);max-width:500px;}
+.body-txt{font-size:.84rem;line-height:2;color:#5a5248;max-width:500px;}
 
 /* STORY */
 #story{background:var(--linen);}
@@ -97,7 +97,7 @@ nav.solid{background:rgba(249,246,242,0.97);backdrop-filter:blur(16px);box-shado
 .pillar:last-child{border-bottom:1px solid rgba(90,125,150,.13);}
 .p-num{font-family:'Libre Baskerville',serif;font-size:1.5rem;color:rgba(90,125,150,.2);flex-shrink:0;line-height:1;margin-top:2px;width:32px;}
 .p-title{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-dk);margin-bottom:7px;font-weight:400;}
-.p-body{font-size:.82rem;line-height:1.85;color:var(--stone);}
+.p-body{font-size:.82rem;line-height:1.85;color:#5a5248;}
 
 /* QUOTE */
 .quote-band{background:var(--ink);padding:80px 80px;display:grid;grid-template-columns:1fr 1px 1fr;gap:60px;align-items:center;}
@@ -122,12 +122,12 @@ nav.solid{background:rgba(249,246,242,0.97);backdrop-filter:blur(16px);box-shado
 .prog-hanja{font-family:'Libre Baskerville',serif;font-size:4rem;color:rgba(90,125,150,.1);line-height:1;margin-bottom:4px;user-select:none;}
 .prog-name{font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);margin-bottom:4px;}
 .prog-en{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:20px;}
-.prog-desc{font-size:.8rem;line-height:1.9;color:var(--stone);margin-bottom:20px;}
+.prog-desc{font-size:.8rem;line-height:1.9;color:#5a5248;margin-bottom:20px;}
 .prog-for{font-size:.72rem;color:var(--blue);line-height:1.8;margin-bottom:28px;}
 .prog-bottom{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(90,125,150,.1);padding-top:22px;}
 .prog-price{font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--ink);}
-.prog-price small{font-family:'Noto Sans KR',sans-serif;font-size:.6rem;color:var(--stone);display:block;margin-top:2px;font-weight:300;}
-.prog-min{font-size:.65rem;letter-spacing:.1em;color:var(--stone);}
+.prog-price small{font-family:'Noto Sans KR',sans-serif;font-size:.6rem;color:#5a5248;display:block;margin-top:2px;font-weight:300;}
+.prog-min{font-size:.65rem;letter-spacing:.1em;color:#5a5248;}
 
 /* SPACE — css illustration gallery */
 #space{background:var(--ink);padding:0;}
@@ -160,24 +160,12 @@ nav.solid{background:rgba(249,246,242,0.97);backdrop-filter:blur(16px);box-shado
 .sp-shelves{position:absolute;top:30px;left:30px;display:flex;flex-direction:column;gap:8px;}
 .sp-shelf{width:50px;height:4px;background:rgba(255,255,255,.18);}
 
-/* SHOP */
-#shop{background:var(--linen);}
-.shop-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:60px;align-items:end;}
-.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.shop-card{background:#fff;border:1px solid rgba(90,125,150,.1);padding:40px 32px;transition:all .3s;}
-.shop-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 12px 40px rgba(90,125,150,.1);}
-.shop-brand{font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--blue-dk);margin-bottom:4px;}
-.shop-sub{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-lt);margin-bottom:20px;}
-.shop-desc{font-size:.8rem;line-height:1.85;color:var(--stone);margin-bottom:22px;}
-.shop-tags{display:flex;flex-wrap:wrap;gap:6px;}
-.stag{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(90,125,150,.2);color:var(--blue);padding:4px 10px;}
-
 /* BOOKING */
 #booking{background:var(--blue-dk);}
 .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 .book-grid .eyebrow{color:var(--blue-lt);}
 .book-grid .sec-title{color:#fff;}
-.book-grid .body-txt{color:rgba(255,255,255,.75);margin-top:18px;}
+.book-grid .body-txt{color:#5a5248;margin-top:18px;}
 .book-opts{margin-top:40px;display:flex;flex-direction:column;gap:10px;}
 .bopt{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);text-decoration:none;color:#fff;transition:all .22s;}
 .bopt:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);}
@@ -190,7 +178,7 @@ nav.solid{background:rgba(249,246,242,0.97);backdrop-filter:blur(16px);box-shado
 .binfo{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.06);}
 .binfo:last-child{border:none;}
 .bdot{width:4px;height:4px;background:var(--blue-lt);border-radius:50%;flex-shrink:0;margin-top:8px;}
-.binfo-body{font-size:.8rem;line-height:1.9;color:rgba(255,255,255,.72);}
+.binfo-body{font-size:.82rem;line-height:2;color:rgba(255,255,255,.85);}
 .binfo-body strong{color:rgba(255,255,255,.7);font-weight:400;display:block;margin-bottom:2px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;}
 
 /* map placeholder */
@@ -263,7 +251,7 @@ html{scroll-behavior:smooth;}
 /* ── INTRO BANNER ── */
 .story-banner {
   background: var(--blue-dk);
-  padding: 100px 80px 90px;
+  padding: 72px 80px;
   position: relative;
   overflow: hidden;
   display: grid;
@@ -375,7 +363,7 @@ html{scroll-behavior:smooth;}
 }
 
 .origin-text {
-  padding: 80px 72px;
+  padding: 64px 60px;
   display: flex; flex-direction: column; justify-content: center;
   background: var(--cream);
   border-left: 3px solid var(--blue-pale);
@@ -459,7 +447,7 @@ html{scroll-behavior:smooth;}
   font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; line-height:1.2; color:var(--ink);
 }
 .cond-title em { font-style:italic; color:var(--blue); }
-.cond-intro { font-size:.84rem; line-height:2; color:var(--stone); padding-top:8px; }
+.cond-intro { font-size:.84rem; line-height:2; color:#5a5248; padding-top:8px; }
 
 .cond-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .cond-card {
@@ -512,7 +500,7 @@ html{scroll-behavior:smooth;}
   font-size:1.3rem; font-weight:400; color:var(--ink); margin-bottom:4px;
 }
 .cond-en { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--blue-lt); margin-bottom:18px; display:block; }
-.cond-desc { font-size:.8rem; line-height:1.9; color:var(--stone); margin-bottom:20px; }
+.cond-desc { font-size:.8rem; line-height:1.9; color:#5a5248; margin-bottom:20px; }
 .cond-root {
   background:var(--blue-pale); padding:14px 18px;
   border-left:2px solid var(--blue);
@@ -529,7 +517,7 @@ html{scroll-behavior:smooth;}
   min-height: 600px;
 }
 .wellness-text {
-  padding: 90px 72px;
+  padding: 64px 60px;
   display: flex; flex-direction: column; justify-content: center;
 }
 .wellness-eyebrow { font-size:.58rem; letter-spacing:.35em; text-transform:uppercase; color:var(--blue); display:block; margin-bottom:20px; }
@@ -552,7 +540,7 @@ html{scroll-behavior:smooth;}
   font-size:1rem; color:var(--blue-dk);
 }
 .w-label { font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--blue-dk); margin-bottom:6px; font-weight:400; }
-.w-desc { font-size:.8rem; line-height:1.8; color:var(--stone); }
+.w-desc { font-size:.8rem; line-height:1.8; color:#5a5248; }
 
 .wellness-visual {
   position:relative; overflow:hidden;
@@ -600,7 +588,7 @@ html{scroll-behavior:smooth;}
 /* ── FOUNDER NOTE ── */
 .founder-section {
   background: var(--blue-dk);
-  padding: 90px 80px;
+  padding: 64px 80px;
   display: grid;
   grid-template-columns: 1fr 2px 1fr;
   gap: 72px;
@@ -656,7 +644,7 @@ html{scroll-behavior:smooth;}
     <li><a href="#story"><span data-lang="ko" class="active">스토리</span><span data-lang="en">Story</span><span data-lang="zh">品牌</span><span data-lang="ja">ストーリー</span></a></li>
     <li><a href="#programs"><span data-lang="ko" class="active">프로그램</span><span data-lang="en">Programs</span><span data-lang="zh">项目</span><span data-lang="ja">プログラム</span></a></li>
     <li><a href="#space"><span data-lang="ko" class="active">공간</span><span data-lang="en">Space</span><span data-lang="zh">空间</span><span data-lang="ja">空間</span></a></li>
-    <li><a href="#shop"><span data-lang="ko" class="active">홈케어</span><span data-lang="en">Shop</span><span data-lang="zh">产品</span><span data-lang="ja">ショップ</span></a></li>
+
     <li><a href="#booking"><span data-lang="ko" class="active">예약</span><span data-lang="en">Book</span><span data-lang="zh">预约</span><span data-lang="ja">予約</span></a></li>
   </ul>
   <div class="nav-right">
@@ -675,7 +663,7 @@ html{scroll-behavior:smooth;}
 <!-- HERO -->
 <section id="hero">
   <div class="hero-visual" style="padding:0;overflow:hidden;">
-    <img src="Chiyou_0983.jpg.png" alt="Chiyou In Cheongdam" style="width:100%;height:100%;object-fit:cover;filter:brightness(.88) saturate(.9);">
+    <img src="Chiyou_0886.jpg" alt="Chiyou In Cheongdam" style="width:100%;height:100%;object-fit:cover;filter:brightness(.88) saturate(.9);">
     <div style="position:absolute;top:0;right:0;width:3px;height:100%;background:var(--blue);opacity:.5;"></div>
   </div>
   <div class="hero-text">
@@ -1024,7 +1012,7 @@ html{scroll-behavior:smooth;}
       </div>
     </div>
     <div class="wellness-visual">
-      <img src="Chiyou_0599.jpg" alt="Treatment">
+      <img src="Chiyou_0192.jpg" alt="Treatment">
       <div class="wellness-label-top">
         <span data-lang="ko" class="active">WELLNESS × MEDICAL · CHEONGDAM</span>
         <span data-lang="en">WELLNESS × MEDICAL · CHEONGDAM</span>
@@ -1125,38 +1113,25 @@ html{scroll-behavior:smooth;}
   </div>
   <div class="space-grid">
     <div class="sp-cell tall" style="overflow:hidden;">
-      <img src="Chiyou_0452.jpg" alt="Treatment" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
+      <img src="Chiyou_0792.jpg" alt="Treatment" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
       <div class="sp-label"><span data-lang="ko" class="active">트리트먼트룸</span><span data-lang="en">Treatment Room</span><span data-lang="zh">护理室</span><span data-lang="ja">トリートメントルーム</span></div>
     </div>
     <div class="sp-cell" style="overflow:hidden;">
-      <img src="Chiyou_0259.jpg" alt="Head massage" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
+      <img src="Chiyou_0655.jpg" alt="Head massage" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
       <div class="sp-label"><span data-lang="ko" class="active">공간 디테일</span><span data-lang="en">Space Detail</span><span data-lang="zh">空间细节</span><span data-lang="ja">空間ディテール</span></div>
     </div>
     <div class="sp-cell" style="overflow:hidden;">
-      <img src="Chiyou_0455.jpg" alt="Back treatment" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
+      <img src="Chiyou_0606.jpg" alt="Back treatment" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
       <div class="sp-label"><span data-lang="ko" class="active">가운·타월</span><span data-lang="en">Gown & Towel</span><span data-lang="zh">浴袍·毛巾</span><span data-lang="ja">ガウン·タオル</span></div>
     </div>
     <div class="sp-cell" style="overflow:hidden;">
-      <img src="Chiyou_0975.jpg.jpg" alt="Slippers" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
+      <img src="Chiyou_0975.jpg" alt="Slippers" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
       <div class="sp-label"><span data-lang="ko" class="active">슬리퍼</span><span data-lang="en">Slippers</span><span data-lang="zh">拖鞋</span><span data-lang="ja">スリッパ</span></div>
     </div>
     <div class="sp-cell" style="overflow:hidden;">
-      <img src="Chiyou_0967.jpg.jpg" alt="Signage" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
+      <img src="Chiyou_0940.jpg" alt="Signage" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
       <div class="sp-label"><span data-lang="ko" class="active">불화강강降</span><span data-lang="en">Heat Descends</span><span data-lang="zh">火降</span><span data-lang="ja">火降</span></div>
     </div>
-  </div>
-</section>
-
-<!-- SHOP -->
-<section id="shop" class="sec">
-  <div class="shop-head">
-    <div><span class="eyebrow"><span data-lang="ko" class="active">홈케어 제품</span><span data-lang="en">Home Care Shop</span><span data-lang="zh">居家护肤产品</span><span data-lang="ja">ホームケア製品</span></span><h2 class="sec-title"><span data-lang="ko" class="active">관리 후에도<br><em>계속되는 치유</em></span><span data-lang="en">The healing<br><em>continues at home</em></span><span data-lang="zh">护理之后，<br><em>在家继续治愈</em></span><span data-lang="ja">施術後も<br><em>続く癒し</em></span></h2></div>
-    <p class="body-txt"><span data-lang="ko" class="active">치유인청담이 엄선한 홈케어 브랜드. 테라피스트가 피부 타입과 상태에 맞춰 직접 처방합니다.</span><span data-lang="en">Carefully curated by Chiyou In Cheongdam. Your therapist personally prescribes products tailored to your skin type and condition.</span><span data-lang="zh">由治愈人清潭精心挑选。治疗师根据您的肤质和状态亲自处方。</span><span data-lang="ja">チユインチョンダムが厳選。肌タイプと状態に合わせてセラピストが直接処方します。</span></p>
-  </div>
-  <div class="shop-grid reveal">
-    <div class="shop-card"><div class="shop-brand">보떼덤</div><div class="shop-sub">Beautedum</div><p class="shop-desc"><span data-lang="ko" class="active">피부 장벽 강화와 민감성 피부를 위한 더마 코스메틱. 자극 없이 피부 본연의 방어력을 회복시키는 처방 중심 제품군입니다.</span><span data-lang="en">Derma-cosmetic for barrier reinforcement and sensitive skin. Prescription-led formulas restoring the skin's natural defense without irritation.</span><span data-lang="zh">专注于强化皮肤屏障和敏感肌护理的皮肤美容品牌。无刺激恢复皮肤天然防御力的处方型产品。</span><span data-lang="ja">皮膚バリア強化と敏感肌のためのダーマコスメ。刺激なく肌本来の防御力を回復させる処方中心の製品。</span></p><div class="shop-tags"><span class="stag"><span data-lang="ko" class="active">장벽강화</span><span data-lang="en">Barrier</span><span data-lang="zh">屏障</span><span data-lang="ja">バリア</span></span><span class="stag"><span data-lang="ko" class="active">민감성</span><span data-lang="en">Sensitive</span><span data-lang="zh">敏感</span><span data-lang="ja">敏感</span></span><span class="stag"><span data-lang="ko" class="active">진정</span><span data-lang="en">Soothing</span><span data-lang="zh">镇静</span><span data-lang="ja">鎮静</span></span></div></div>
-    <div class="shop-card"><div class="shop-brand">로이코스메틱</div><div class="shop-sub">ROI Cosmetic</div><p class="shop-desc"><span data-lang="ko" class="active">트러블성 피부와 재생 케어에 특화된 기능성 스킨케어. 수분 공급과 피부 재생을 동시에 실현하는 임상 검증 성분으로 구성됩니다.</span><span data-lang="en">Functional skincare for troubled skin and regenerative care. Clinically validated ingredients that simultaneously hydrate and regenerate.</span><span data-lang="zh">专为问题肌肤和再生护理设计的功能性护肤品。经临床验证同时实现补水和皮肤再生的成分。</span><span data-lang="ja">トラブル肌と再生ケアに特化した機能性スキンケア。水分補給と皮膚再生を同時に実現する臨床検証済み成分。</span></p><div class="shop-tags"><span class="stag"><span data-lang="ko" class="active">트러블</span><span data-lang="en">Trouble</span><span data-lang="zh">问题肌</span><span data-lang="ja">トラブル</span></span><span class="stag"><span data-lang="ko" class="active">재생</span><span data-lang="en">Renewal</span><span data-lang="zh">再生</span><span data-lang="ja">再生</span></span><span class="stag"><span data-lang="ko" class="active">기능성</span><span data-lang="en">Functional</span><span data-lang="zh">功能性</span><span data-lang="ja">機能性</span></span></div></div>
-    <div class="shop-card"><div class="shop-brand">조성코퍼레이션</div><div class="shop-sub">Joseong Corporation</div><p class="shop-desc"><span data-lang="ko" class="active">전문가용 피부과 케어와 에스테틱을 연결하는 프리미엄 브랜드. 고농도 활성 성분으로 집에서도 시술급 효과를 경험하세요.</span><span data-lang="en">Premium brand bridging professional dermatological care and esthetics. High-concentration active ingredients for clinical-grade results at home.</span><span data-lang="zh">连接专业皮肤科护理和美容的高端品牌。高浓度活性成分，在家也能体验诊所级效果。</span><span data-lang="ja">プロの皮膚科ケアとエステを結ぶプレミアムブランド。高濃度活性成分で自宅でも施術級の効果を。</span></p><div class="shop-tags"><span class="stag"><span data-lang="ko" class="active">프리미엄</span><span data-lang="en">Premium</span><span data-lang="zh">高端</span><span data-lang="ja">プレミアム</span></span><span class="stag"><span data-lang="ko" class="active">고농도</span><span data-lang="en">High-Potency</span><span data-lang="zh">高浓度</span><span data-lang="ja">高濃度</span></span><span class="stag"><span data-lang="ko" class="active">전문가급</span><span data-lang="en">Pro-Grade</span><span data-lang="zh">专业级</span><span data-lang="ja">プロ仕様</span></span></div></div>
   </div>
 </section>
 
@@ -1166,7 +1141,10 @@ html{scroll-behavior:smooth;}
     <div class="reveal">
       <span class="eyebrow"><span data-lang="ko" class="active">예약 안내</span><span data-lang="en">Book a Session</span><span data-lang="zh">预约指南</span><span data-lang="ja">ご予約案内</span></span>
       <h2 class="sec-title"><span data-lang="ko" class="active">첫 방문을<br><em>시작하세요</em></span><span data-lang="en">Begin your<br><em>first visit</em></span><span data-lang="zh">开始您的<br><em>第一次造访</em></span><span data-lang="ja">最初の訪問を<br><em>始めましょう</em></span></h2>
-      <p class="body-txt"><span data-lang="ko" class="active">첫 방문 시 15–20분 무료 피부 구조 상담을 제공합니다.</span><span data-lang="en">All first-time visitors receive a complimentary 15–20 min skin structure consultation.</span><span data-lang="zh">首次来访者可享受15-20分钟的免费肌肤结构咨询。</span><span data-lang="ja">初回ご来店の方には15〜20分の無料肌構造カウンセリングを提供しています。</span></p>
+      <div style="margin-bottom:28px;overflow:hidden;border-radius:2px;">
+        <img src="Chiyou_1016.jpg" alt="Treatment" style="width:100%;height:220px;object-fit:cover;object-position:center 30%;filter:brightness(.85);">
+      </div>
+      <p class="body-txt" style="color:rgba(255,255,255,.8);"><span data-lang="ko" class="active">첫 방문 시 15–20분 무료 피부 구조 상담을 제공합니다.</span><span data-lang="en">All first-time visitors receive a complimentary 15–20 min skin structure consultation.</span><span data-lang="zh">首次来访者可享受15-20分钟的免费肌肤结构咨询。</span><span data-lang="ja">初回ご来店の方には15〜20分の無料肌構造カウンセリングを提供しています。</span></p>
       <div class="book-opts">
         <a href="https://booking.naver.com/booking/13/bizes/761409" target="_blank" class="bopt"><div class="bopt-l"><span class="bopt-ico">🇰🇷</span><div><div class="bopt-lbl"><span data-lang="ko" class="active">네이버 예약</span><span data-lang="en">Naver Booking</span><span data-lang="zh">Naver预约</span><span data-lang="ja">Naver予約</span></div><div class="bopt-sub"><span data-lang="ko" class="active">한국인 고객 추천</span><span data-lang="en">For Korean guests</span><span data-lang="zh">推荐韩国顾客</span><span data-lang="ja">韓国のお客様向け</span></div></div></div><span class="bopt-arr">→</span></a>
         <a href="#" class="bopt"><div class="bopt-l"><span class="bopt-ico">🌍</span><div><div class="bopt-lbl"><span data-lang="ko" class="active">온라인 예약 (외국인)</span><span data-lang="en">Online Booking (International)</span><span data-lang="zh">在线预约（外国顾客）</span><span data-lang="ja">オンライン予約</span></div><div class="bopt-sub"><span data-lang="ko" class="active">영어 · 중국어 · 일본어 응대</span><span data-lang="en">EN · ZH · JA available</span><span data-lang="zh">英语 · 中文 · 日语</span><span data-lang="ja">英語 · 中国語 · 日本語</span></div></div></div><span class="bopt-arr">→</span></a>
@@ -1187,7 +1165,7 @@ html{scroll-behavior:smooth;}
 <footer>
   <div class="foot-top">
     <div><span class="foot-logo">CHIYOU IN CHEONGDAM</span><p class="foot-tag"><span data-lang="ko" class="active">"피부는 결과입니다. 우리는 원인을 봅니다."</span><span data-lang="en">"Skin is the result. We treat the cause."</span><span data-lang="zh">"皮肤是结果。我们治疗根本原因。"</span><span data-lang="ja">"肌は結果です。私たちは原因を見ます。"</span></p><div class="foot-contact">강남구 청담동 · 강남파라곤 3층<br>+82 10-2117-1341<br>KakaoTalk: pilabeautylab</div></div>
-    <div class="foot-col"><h5><span data-lang="ko" class="active">메뉴</span><span data-lang="en">Menu</span><span data-lang="zh">菜单</span><span data-lang="ja">メニュー</span></h5><ul><li><a href="#story"><span data-lang="ko" class="active">브랜드 스토리</span><span data-lang="en">Our Story</span><span data-lang="zh">品牌故事</span><span data-lang="ja">ストーリー</span></a></li><li><a href="#programs"><span data-lang="ko" class="active">프로그램</span><span data-lang="en">Programs</span><span data-lang="zh">护理项目</span><span data-lang="ja">プログラム</span></a></li><li><a href="#space"><span data-lang="ko" class="active">공간</span><span data-lang="en">The Space</span><span data-lang="zh">空间</span><span data-lang="ja">空間</span></a></li><li><a href="#shop"><span data-lang="ko" class="active">홈케어</span><span data-lang="en">Home Care</span><span data-lang="zh">居家护肤</span><span data-lang="ja">ホームケア</span></a></li><li><a href="#booking"><span data-lang="ko" class="active">예약</span><span data-lang="en">Book</span><span data-lang="zh">预约</span><span data-lang="ja">予約</span></a></li></ul></div>
+    <div class="foot-col"><h5><span data-lang="ko" class="active">메뉴</span><span data-lang="en">Menu</span><span data-lang="zh">菜单</span><span data-lang="ja">メニュー</span></h5><ul><li><a href="#story"><span data-lang="ko" class="active">브랜드 스토리</span><span data-lang="en">Our Story</span><span data-lang="zh">品牌故事</span><span data-lang="ja">ストーリー</span></a></li><li><a href="#programs"><span data-lang="ko" class="active">프로그램</span><span data-lang="en">Programs</span><span data-lang="zh">护理项目</span><span data-lang="ja">プログラム</span></a></li><li><a href="#space"><span data-lang="ko" class="active">공간</span><span data-lang="en">The Space</span><span data-lang="zh">空间</span><span data-lang="ja">空間</span></a></li><li><a href="#booking"><span data-lang="ko" class="active">예약</span><span data-lang="en">Book</span><span data-lang="zh">预约</span><span data-lang="ja">予約</span></a></li></ul></div>
     <div class="foot-col"><h5>Follow</h5><ul><li><a href="https://www.instagram.com/chiyou_in_chengdam" target="_blank">@chiyou_in_chengdam</a></li><li><a href="https://www.instagram.com/therapist_chiy0u" target="_blank">@therapist_chiy0u</a></li><li><a href="https://booking.naver.com/booking/13/bizes/761409" target="_blank">Naver 예약</a></li></ul></div>
   </div>
   <div class="foot-bottom"><span class="foot-copy">© 2025 Chiyou In Cheongdam. All rights reserved.</span><div class="foot-sns"><a href="https://www.instagram.com/chiyou_in_chengdam" target="_blank">Instagram</a><a href="#">Kakao</a><a href="https://booking.naver.com/booking/13/bizes/761409" target="_blank">Naver</a></div></div>
