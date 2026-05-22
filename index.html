@@ -138,7 +138,7 @@ nav.solid{background:rgba(249,246,242,0.97);backdrop-filter:blur(16px);box-shado
 
 /* each cell = stylized room illustration */
 .sp-cell .room-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative;transition:filter .4s;}
-.sp-cell:hover .room-bg{filter:brightness(1.08);}
+.sp-cell:hover img{transform:scale(1.04);filter:brightness(.95) saturate(.9);} .sp-cell:hover .room-bg{filter:brightness(1.08);}
 .room-reception{background:linear-gradient(160deg,#4a6f87 0%,#3d5c72 60%,#2e4557 100%);}
 .room-consult{background:linear-gradient(140deg,#5a8099 0%,#4a6f87 100%);}
 .room-treat1{background:linear-gradient(150deg,#c8b9a8 0%,#b8a99a 50%,#a89080 100%);}
@@ -666,17 +666,9 @@ html{scroll-behavior:smooth;}
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-visual">
-    <div class="hero-visual-inner">
-      <div class="hero-kanji">治</div>
-    </div>
-    <div class="hero-circle"></div>
-    <div class="hero-line"></div>
-    <div class="hero-room">
-      <div class="room-block wide"></div>
-      <div class="room-block tall"></div>
-      <div class="room-block sm"></div>
-    </div>
+  <div class="hero-visual" style="padding:0;overflow:hidden;">
+    <img src="Chiyou_0983.jpg" alt="Chiyou In Cheongdam" style="width:100%;height:100%;object-fit:cover;filter:brightness(.88) saturate(.9);">
+    <div style="position:absolute;top:0;right:0;width:3px;height:100%;background:var(--blue);opacity:.5;"></div>
   </div>
   <div class="hero-text">
     <p class="hero-ey">Gangnam-gu · Cheongdam-dong · Seoul</p>
@@ -1127,11 +1119,26 @@ html{scroll-behavior:smooth;}
     <h2 class="sec-title" style="color:#fff"><span data-lang="ko" class="active">고요하고<br><em style="color:var(--blue-lt)">정밀한 공간</em></span><span data-lang="en">Quiet and<br><em style="color:var(--blue-lt)">precise</em></span><span data-lang="zh">静谧而<br><em style="color:var(--blue-lt)">精致的空间</em></span><span data-lang="ja">静かで<br><em style="color:var(--blue-lt)">精密な空間</em></span></h2>
   </div>
   <div class="space-grid">
-    <div class="sp-cell tall"><div class="room-bg room-treat1"><div class="sp-curtain"></div><div class="sp-curtain2"></div><div class="sp-light"></div><div class="sp-bed"></div><div class="sp-mirror"></div><div class="sp-label"><span data-lang="ko" class="active">트리트먼트룸 A</span><span data-lang="en">Treatment Room A</span><span data-lang="zh">护理室 A</span><span data-lang="ja">トリートメントルーム A</span></div></div></div>
-    <div class="sp-cell"><div class="room-bg room-reception"><div class="sp-light"></div><div class="sp-desk"></div><div class="sp-label"><span data-lang="ko" class="active">리셉션</span><span data-lang="en">Reception</span><span data-lang="zh">前台</span><span data-lang="ja">レセプション</span></div></div></div>
-    <div class="sp-cell"><div class="room-bg room-consult"><div class="sp-shelves"><div class="sp-shelf"></div><div class="sp-shelf"></div></div><div class="sp-label"><span data-lang="ko" class="active">상담실</span><span data-lang="en">Consultation</span><span data-lang="zh">咨询室</span><span data-lang="ja">カウンセリング</span></div></div></div>
-    <div class="sp-cell"><div class="room-bg room-lounge"><div class="sp-light"></div><div class="sp-label"><span data-lang="ko" class="active">라운지</span><span data-lang="en">Lounge</span><span data-lang="zh">休息区</span><span data-lang="ja">ラウンジ</span></div></div></div>
-    <div class="sp-cell"><div class="room-bg room-treat2"><div class="sp-curtain"></div><div class="sp-bed"></div><div class="sp-label"><span data-lang="ko" class="active">트리트먼트룸 B</span><span data-lang="en">Treatment Room B</span><span data-lang="zh">护理室 B</span><span data-lang="ja">トリートメントルーム B</span></div></div></div>
+    <div class="sp-cell tall" style="overflow:hidden;">
+      <img src="Chiyou_1099.jpg" alt="Treatment Room" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
+      <div class="sp-label"><span data-lang="ko" class="active">트리트먼트룸</span><span data-lang="en">Treatment Room</span><span data-lang="zh">护理室</span><span data-lang="ja">トリートメントルーム</span></div>
+    </div>
+    <div class="sp-cell" style="overflow:hidden;">
+      <img src="Chiyou_1091.jpg" alt="Space detail" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
+      <div class="sp-label"><span data-lang="ko" class="active">공간 디테일</span><span data-lang="en">Space Detail</span><span data-lang="zh">空间细节</span><span data-lang="ja">空間ディテール</span></div>
+    </div>
+    <div class="sp-cell" style="overflow:hidden;">
+      <img src="Chiyou_1000.jpg" alt="Gown" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
+      <div class="sp-label"><span data-lang="ko" class="active">가운·타월</span><span data-lang="en">Gown & Towel</span><span data-lang="zh">浴袍·毛巾</span><span data-lang="ja">ガウン·タオル</span></div>
+    </div>
+    <div class="sp-cell" style="overflow:hidden;">
+      <img src="Chiyou_0975.jpg" alt="Slippers" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
+      <div class="sp-label"><span data-lang="ko" class="active">슬리퍼</span><span data-lang="en">Slippers</span><span data-lang="zh">拖鞋</span><span data-lang="ja">スリッパ</span></div>
+    </div>
+    <div class="sp-cell" style="overflow:hidden;">
+      <img src="Chiyou_0967.jpg" alt="Signage" style="width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.85);transition:transform .6s,filter .4s;">
+      <div class="sp-label"><span data-lang="ko" class="active">불화강강降</span><span data-lang="en">Heat Descends</span><span data-lang="zh">火降</span><span data-lang="ja">火降</span></div>
+    </div>
   </div>
 </section>
 
